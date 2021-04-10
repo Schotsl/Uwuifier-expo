@@ -1,0 +1,12 @@
+{
+  "name": "Uwuifier-expo",
+  "displayName": "Uwuifier-expo",
+  "expo": {
+    "name": "Uwuifier-expo",
+    "slug": "Uwuifier-expo",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
