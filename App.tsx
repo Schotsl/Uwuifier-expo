@@ -1,44 +1,109 @@
-import React, { useState } from 'react';
-import Uwuifier from 'uwuifier';
-import { StyleSheet, SafeAreaView, TextInput } from 'react-native';
+import Uwuifier from "uwuifier";
+import React, { useState } from "react";
+import { StyleSheet, SafeAreaView, TextInput, View, Text } from "react-native";
 
 export default function App() {
-  const [input, setText] = useState("Hey! This site can help you make any old boring text nice and uwu. We can't imagine anyone would actually use this, but you gotta do what you gotta do.");
+  const [input, setText] = useState(
+    "Hey! This site can help you make any old boring text nice and uwu. We can't imagine anyone would actually use this, but you gotta do what you gotta do."
+  );
   const uwuifier = new Uwuifier();
 
   return (
-    <SafeAreaView style={styles.container}>
-      <TextInput
-      style={styles.textArea}
-      placeholder="Type something"
-      placeholderTextColor="grey"
-      onChangeText={text => setText(text)}
-      multiline={true}
-      value={input}
-    />
-      <TextInput
-      style={styles.textArea}
-      placeholder="Read something"
-      placeholderTextColor="grey"
-      multiline={true}
-      editable={false}
-      value={uwuifier.uwuifySentence(input)}
-    />
+    <SafeAreaView style={styles.body}>
+      <View style={styles.inputs}>
+        <View
+          style={[
+            styles.header,
+            {
+              borderTopEndRadius: 6,
+              borderTopStartRadius: 6,
+              backgroundColor: "#252525",
+            },
+          ]}
+        >
+          <View style={styles.wrapper}>
+            <Text style={[styles.content, { color: "#ffffff" }]}>Input</Text>
+            <View
+              style={[styles.underline, { backgroundColor: "#ffffff" }]}
+            ></View>
+          </View>
+        </View>
+
+        <View style={[styles.input, { backgroundColor: "#252525" }]}>
+          <TextInput
+            style={[ styles.input, { color: "#ffffff" }]}
+            placeholder="Type something"
+            placeholderTextColor="grey"
+            onChangeText={(text) => setText(text)}
+            multiline={true}
+            value={input}
+          />
+        </View>
+
+        <View style={[styles.header, { backgroundColor: "#ffc83d" }]}>
+          <View style={styles.wrapper}>
+            <Text style={[styles.content, { color: "#000000" }]}>Output</Text>
+            <View
+              style={[styles.underline, { backgroundColor: "#000000" }]}
+            ></View>
+          </View>
+        </View>
+
+        <View
+          style={[
+            styles.input,
+            {
+              backgroundColor: "#ffc83d",
+              borderBottomStartRadius: 6,
+              borderBottomEndRadius: 6,
+            },
+          ]}
+        >
+          <TextInput
+            style={[ styles.input, { color: "#000000" }]}
+            placeholder="Read something"
+            placeholderTextColor="grey"
+            multiline={true}
+            editable={false}
+            value={uwuifier.uwuifySentence(input)}
+          />
+        </View>
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  textArea: {
-    flex: 1,
-    margin: 25,
-    padding: 15,
-    backgroundColor: 'white',
-    textAlignVertical: 'top',
+  body: {
+    height: "100%",
+    backgroundColor: "#303030",
   },
-  container: {
+  inputs: {
+    height: "100%",
+    padding: 20,
+  },
+  header: {
+    height: 40,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  content: {
+    height: "100%",
+    display: "flex",
+    fontWeight: "600",
+    alignItems: "center",
+    textAlignVertical: "center",
+  },
+  underline: {
+    height: 2,
+  },
+  wrapper: {
+    height: "100%",
+    justifyContent: "center",
+  },
+  input: {
     flex: 1,
-    display: 'flex',
-    backgroundColor: 'grey',
+    padding: 10,
+    textAlignVertical: "top",
   },
 });
