@@ -8,7 +8,8 @@
     "slug": "uwuifier",
     "android": {
       "package": "com.sjorsvanholst.uwuifier",
-      "versionCode": 1
+      "versionCode": 3,
+      "permissions": []
     }
    }
 }
