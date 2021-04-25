@@ -1,17 +1,20 @@
 import Uwuifier from "uwuifier";
+import Clipboard from "expo-clipboard";
+
+import Svg, { Path } from "react-native-svg";
 import React, { useState } from "react";
+
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import {
-  StyleSheet,
-  TextInput,
-  View,
   Text,
+  View,
   Share,
-  ToastAndroid,
+  TextInput,
   Pressable,
+  ScrollView,
+  StyleSheet,
+  ToastAndroid,
 } from "react-native";
-import Clipboard from "expo-clipboard";
-import Svg, { Path } from "react-native-svg";
 
 export default function App() {
   const [input, setText] = useState(
@@ -22,7 +25,7 @@ export default function App() {
   const copyText = () => {
     const uwuified = uwuifier.uwuifySentence(input);
     Clipboard.setString(uwuified);
-    ToastAndroid.show('Copied to clipboard', ToastAndroid.SHORT);
+    ToastAndroid.show("Copied to clipboard", ToastAndroid.SHORT);
   };
 
   const shareText = () => {
@@ -82,14 +85,11 @@ export default function App() {
               },
             ]}
           >
-            <TextInput
-              style={[styles.input, { color: "#000000" }]}
-              placeholder="Read something"
-              placeholderTextColor="grey"
-              multiline={true}
-              editable={false}
-              value={uwuifier.uwuifySentence(input)}
-            />
+            <ScrollView>
+              <Text style={[styles.input, { color: "#000000" }]}>
+                {uwuifier.uwuifySentence(input)}
+              </Text>
+            </ScrollView>
 
             <View style={styles.buttons}>
               <Pressable
@@ -126,9 +126,7 @@ export default function App() {
                     d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
                   />
                 </Svg>
-                <Text style={[styles.text]}>
-                  Copy to clipboard
-                </Text>
+                <Text style={[styles.text]}>Copy to clipboard</Text>
               </Pressable>
             </View>
           </View>
@@ -141,11 +139,11 @@ export default function App() {
 const styles = StyleSheet.create({
   body: {
     height: "100%",
+    padding: 20,
     backgroundColor: "#303030",
   },
   inputs: {
     height: "100%",
-    padding: 20,
   },
   header: {
     height: 40,
@@ -168,14 +166,16 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    paddingVertical: 5,
+    height: "100%",
+    paddingVertical: 10,
     paddingHorizontal: 10,
     textAlignVertical: "top",
   },
   buttons: {
     height: 45,
     display: "flex",
-    marginVertical: 5,
+    marginTop: 10,
+    marginBottom: 0,
     flexDirection: "row",
   },
   button: {
@@ -186,8 +186,11 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#ffffff",
+    display: "flex",
     fontSize: 16,
     marginTop: -2,
+    flexDirection: "column",
+    justifyContent: "center",
     textAlignVertical: "center",
   },
   svg: {
