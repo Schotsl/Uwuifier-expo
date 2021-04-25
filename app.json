@@ -1,15 +1,14 @@
 {
-  "name": "Uwuifier-expo",
-  "displayName": "Uwuifier-expo",
+  "name": "Uwuifier",
+  "displayName": "Uwuifier",
   "expo": {
-    "name": "Uwuifier-expo",
-    "slug": "Uwuifier-expo",
+    "name": "Uwuifier",
+    "icon": "./assets/logo.png",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
-  },
-  "android": {
-    "softwareKeyboardLayoutMode": "pan"
-  }
+    "slug": "uwuifier",
+    "android": {
+      "package": "com.sjorsvanholst.uwuifier",
+      "versionCode": 1
+    }
+   }
 }
