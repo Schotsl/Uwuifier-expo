@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Text, View, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 type Props = {
   color: string;
@@ -26,7 +26,8 @@ const Inputs = (props: Props) => {
         </Text>
         <View
           style={[styles.underline, { backgroundColor: props.color }]}
-        ></View>
+        >
+        </View>
       </View>
     </View>
   );

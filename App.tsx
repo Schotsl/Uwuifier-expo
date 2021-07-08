@@ -6,12 +6,12 @@ import Inputs from "./components/Inputs.tsx";
 
 import React, { useState } from "react";
 
-import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
-import { Text, View, TextInput, ScrollView, StyleSheet } from "react-native";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function App() {
   const [input, setText] = useState(
-    "Hey! This site can help you make any old boring text nice and uwu. We can't imagine anyone would actually use this, but you gotta do what you gotta do."
+    "Hey! This site can help you make any old boring text nice and uwu. We can't imagine anyone would actually use this, but you gotta do what you gotta do.",
   );
   const uwuifier = new Uwuifier();
 

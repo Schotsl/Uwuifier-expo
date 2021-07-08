@@ -3,12 +3,12 @@ import React from "react";
 import Svg, { Path } from "react-native-svg";
 
 import {
-  Text,
-  View,
   Image,
-  StyleSheet,
   Linking,
   Pressable,
+  StyleSheet,
+  Text,
+  View,
 } from "react-native";
 
 const Header = () => {
@@ -20,8 +20,7 @@ const Header = () => {
       </View>
       <Pressable
         onPress={() =>
-          Linking.openURL("https://github.com/Schotsl/Uwuifier-node")
-        }
+          Linking.openURL("https://github.com/Schotsl/Uwuifier-node")}
       >
         <Svg style={styles.github} width="24" height="24" viewBox="0 0 24 24">
           <Path

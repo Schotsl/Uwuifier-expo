@@ -4,12 +4,12 @@ import React from "react";
 import Svg, { Path } from "react-native-svg";
 
 import {
-  Text,
-  View,
-  Share,
   Pressable,
+  Share,
   StyleSheet,
+  Text,
   ToastAndroid,
+  View,
 } from "react-native";
 
 const copyText = (message: string) => {
