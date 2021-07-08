@@ -1,8 +1,8 @@
 import Uwuifier from "uwuifier";
 
-import Label from "./components/Label.tsx";
-import Header from "./components/Header.tsx";
-import Inputs from "./components/Inputs.tsx";
+import { Label } from "./components/Label.tsx";
+import { Header } from "./components/Header.tsx";
+import { Inputs } from "./components/Inputs.tsx";
 
 import React, { useState } from "react";
 
