@@ -21,11 +21,11 @@ const shareText = (message: string) => {
   Share.share({ message });
 };
 
-type Props = {
+interface Props {
   uwuified: string;
-};
+}
 
-const Inputs = (props: Props) => {
+export const Inputs = (props: Props) => {
   return (
     <View style={styles.buttons}>
       <Pressable
@@ -104,5 +104,3 @@ const styles = StyleSheet.create({
     margin: 13,
   },
 });
-
-export default Inputs;

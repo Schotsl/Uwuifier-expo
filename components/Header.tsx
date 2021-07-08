@@ -11,7 +11,7 @@ import {
   View,
 } from "react-native";
 
-const Header = () => {
+export const Header = () => {
   return (
     <View style={styles.header}>
       <View style={styles.group}>
@@ -73,5 +73,3 @@ const styles = StyleSheet.create({
     marginLeft: 0,
   },
 });
-
-export default Header;

@@ -2,13 +2,13 @@ import React from "react";
 
 import { StyleSheet, Text, View } from "react-native";
 
-type Props = {
+interface Props {
   color: string;
   label: string;
   background: string;
-};
+}
 
-const Inputs = (props: Props) => {
+export const Label = (props: Props) => {
   return (
     <View
       style={[
@@ -54,5 +54,3 @@ const styles = StyleSheet.create({
     height: 3,
   },
 });
-
-export default Inputs;
