@@ -6,7 +6,7 @@ import { Inputs } from "./components/Inputs.tsx";
 
 import React, { useState } from "react";
 
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 
@@ -14,7 +14,7 @@ const uwuifier = new Uwuifier();
 
 export default function App() {
   const [input, setText] = useState(
-    "Hey! This site can help you make any old boring text nice and uwu. We can't imagine anyone would actually use this, but you gotta do what you gotta do.",
+    "Hey! This site can help you make any old boring text nice and uwu. We can't imagine anyone would actually use this, but you gotta do what you gotta do."
   );
 
   return (
@@ -22,55 +22,51 @@ export default function App() {
       <SafeAreaView style={styles.body}>
         <Header />
 
-        <View style={styles.container}>
-          <View style={styles.inputs}>
-            <Label
-              color="#fff"
-              background="#252525"
-              label="Input"
-              radius={true}
+        <View style={styles.inputs}>
+          <Label
+            color="#fff"
+            background="#252525"
+            label="Input"
+            radius={true}
+          />
+
+          <View style={[styles.input, { backgroundColor: "#252525" }]}>
+            <TextInput
+              style={[styles.input, { color: "#ffffff" }]}
+              placeholder="Type something"
+              placeholderTextColor="grey"
+              onChangeText={(text: string) => setText(text)}
+              multiline={true}
+              value={input}
             />
+          </View>
 
-            <View style={[styles.input, { backgroundColor: "#252525" }]}>
-              <TextInput
-                style={[styles.input, { color: "#ffffff" }]}
-                placeholder="Type something"
-                placeholderTextColor="grey"
-                onChangeText={(text: string) => setText(text)}
-                multiline={true}
-                value={input}
-              />
-            </View>
+          <Label
+            color="#252525"
+            background="#ffc83d"
+            label="Output"
+            radius={false}
+          />
 
-            <Label
-              color="#252525"
-              background="#ffc83d"
-              label="Output"
-              radius={false}
-            />
+          <View
+            style={[
+              styles.input,
+              {
+                backgroundColor: "#ffc83d",
+                borderBottomEndRadius: 6,
+                borderBottomStartRadius: 6,
+              },
+            ]}
+          >
+            <ScrollView>
+              <Text style={[styles.input, { color: "#000000" }]}>
+                {uwuifier.uwuifySentence(input)}
+              </Text>
+            </ScrollView>
 
-            <View
-              style={[
-                styles.input,
-                {
-                  backgroundColor: "#ffc83d",
-                  borderBottomEndRadius: 6,
-                  borderBottomStartRadius: 6,
-                },
-              ]}
-            >
-              <ScrollView>
-                <Text style={[styles.input, { color: "#000000" }]}>
-                  {uwuifier.uwuifySentence(input)}
-                </Text>
-              </ScrollView>
-
-              <Inputs uwuified={uwuifier.uwuifySentence(input)} />
-            </View>
+            <Inputs uwuified={uwuifier.uwuifySentence(input)} />
           </View>
         </View>
-        
-        <StatusBar style="light" />
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -80,16 +76,11 @@ const styles = StyleSheet.create({
   body: {
     height: "100%",
     display: "flex",
-    backgroundColor: "#252525",
-  },
-  container: {
-    flex: 1,
-    padding: 20,
-    display: "flex",
     backgroundColor: "#303030",
   },
   inputs: {
     flex: 1,
+    margin: 20,
     shadowColor: "black",
     shadowOffset: { width: 6, height: 6 },
     shadowRadius: 6,
