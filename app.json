@@ -4,11 +4,11 @@
   "expo": {
     "name": "Uwuifier",
     "icon": "./assets/logo.png",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "slug": "uwuifier",
     "android": {
       "package": "com.sjorsvanholst.uwuifier",
-      "versionCode": 3,
+      "versionCode": 4,
       "permissions": []
     }
    }
