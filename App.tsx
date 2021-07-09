@@ -14,7 +14,7 @@ const uwuifier = new Uwuifier();
 
 export default function App() {
   const [input, setText] = useState(
-    "Hey! This site can help you make any old boring text nice and uwu. We can't imagine anyone would actually use this, but you gotta do what you gotta do."
+    "Hey! This site can help you make any old boring text nice and uwu. We can't imagine anyone would actually use this, but you gotta do what you gotta do.",
   );
 
   return (
