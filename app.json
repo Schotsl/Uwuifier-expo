@@ -1,24 +1,30 @@
 {
   "name": "Uwuifier",
+  "orientation": "portrait",
   "displayName": "Uwuifier",
+  "backgroundColor": "#303030",
   "expo": {
     "name": "Uwuifier",
-    "icon": "./assets/logo.png",
     "slug": "uwuifier",
+    "icon": "./assets/logo.png",
     "version": "1.0.0",
     "android": {
       "package": "com.sjorsvanholst.uwuifier",
-      "versionCode": 7,
+      "versionCode": 8,
       "permissions": []
     },
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffc83d"
+      "backgroundColor": "#303030"
     },
     "androidStatusBar": {
-      "barStyle": "light",
-      "androidStatusBar": "#252525"
+      "barStyle": "light-content",
+      "backgroundColor": "#252525"
+    },
+    "androidNavigationBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#303030"
     }
   }
 }
