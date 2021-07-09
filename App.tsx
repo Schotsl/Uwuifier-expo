@@ -6,6 +6,7 @@ import { Inputs } from "./components/Inputs.tsx";
 
 import React, { useState } from "react";
 
+import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 
@@ -68,6 +69,8 @@ export default function App() {
             </View>
           </View>
         </View>
+        
+        <StatusBar style="light" />
       </SafeAreaView>
     </SafeAreaProvider>
   );
