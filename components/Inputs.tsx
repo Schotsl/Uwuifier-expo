@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
   buttons: {
     height: 45,
     display: "flex",
+    marginTop: 10,
     flexDirection: "row",
   },
   button: {

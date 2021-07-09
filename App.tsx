@@ -21,6 +21,7 @@ export default function App() {
       <SafeAreaView style={styles.body}>
         <Header />
 
+        <View style={styles.container}>
         <View style={styles.inputs}>
           <Label
             color="#fff"
@@ -66,6 +67,7 @@ export default function App() {
             <Inputs uwuified={uwuifier.uwuifySentence(input)} />
           </View>
         </View>
+        </View>
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -75,12 +77,16 @@ const styles = StyleSheet.create({
   body: {
     height: "100%",
     display: "flex",
+    backgroundColor: "#252525",
+  },
+  container: {
+    flex: 1,
+    padding: 20,
+    display: 'flex',
     backgroundColor: "#303030",
   },
   inputs: {
     flex: 1,
-    margin: 20,
-    marginTop: 0,
     shadowColor: "black",
     shadowOffset: { width: 6, height: 6 },
     shadowRadius: 6,
