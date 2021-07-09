@@ -5,6 +5,7 @@ import { StyleSheet, Text, View } from "react-native";
 interface Props {
   color: string;
   label: string;
+  radius: boolean;
   background: string;
 }
 
@@ -14,8 +15,9 @@ export const Label = (props: Props) => {
       style={[
         styles.header,
         {
-          borderTopEndRadius: 6,
-          borderTopStartRadius: 6,
+          borderTopEndRadius: props.radius ? 6 : 0,
+          borderTopStartRadius: props.radius ? 6 : 0,
+
           backgroundColor: props.background,
         },
       ]}

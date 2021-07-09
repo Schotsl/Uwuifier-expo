@@ -22,7 +22,7 @@ export default function App() {
         <Header />
 
         <View style={styles.inputs}>
-          <Label color="#fff" background="#252525" label="Input" />
+          <Label color="#fff" background="#252525" label="Input" radius={true} />
 
           <View style={[styles.input, { backgroundColor: "#252525" }]}>
             <TextInput
@@ -35,15 +35,15 @@ export default function App() {
             />
           </View>
 
-          <Label color="#252525" background="#ffc83d" label="Output" />
+          <Label color="#252525" background="#ffc83d" label="Output" radius={false} />
 
           <View
             style={[
               styles.input,
               {
                 backgroundColor: "#ffc83d",
-                borderBottomStartRadius: 6,
                 borderBottomEndRadius: 6,
+                borderBottomStartRadius: 6,
               },
             ]}
           >
@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 20,
     marginTop: 0,
-
     shadowColor: "black",
     shadowOffset: { width: 6, height: 6 },
     shadowRadius: 6,
