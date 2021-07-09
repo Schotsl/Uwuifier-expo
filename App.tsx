@@ -22,7 +22,12 @@ export default function App() {
         <Header />
 
         <View style={styles.inputs}>
-          <Label color="#fff" background="#252525" label="Input" radius={true} />
+          <Label
+            color="#fff"
+            background="#252525"
+            label="Input"
+            radius={true}
+          />
 
           <View style={[styles.input, { backgroundColor: "#252525" }]}>
             <TextInput
@@ -35,7 +40,12 @@ export default function App() {
             />
           </View>
 
-          <Label color="#252525" background="#ffc83d" label="Output" radius={false} />
+          <Label
+            color="#252525"
+            background="#ffc83d"
+            label="Output"
+            radius={false}
+          />
 
           <View
             style={[
