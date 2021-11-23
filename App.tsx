@@ -12,9 +12,32 @@ import { ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 const uwuifier = new Uwuifier();
 
 export default function App() {
+  const [changed, setChanged] = useState(false);
+  const [next, setNext] = useState(0);
   const [input, setText] = useState(
     "Hey! This site can help you make any old boring text nice and uwu. We can't imagine anyone would actually use this, but you gotta do what you gotta do.",
   );
+
+  function onChange(content: string) {
+    setText(content);
+
+    if (changed) {
+      const timeout = setTimeout(addHistory, 1000);
+
+      setNext(timeout);
+      clearTimeout(next);
+    }
+
+    setChanged(true);
+  }
+
+  function addHistory() {
+    const body = JSON.stringify({});
+    const method = "POST";
+    const headers = { "Content-Type": "application/json" };
+
+    fetch("https://api.uwuifier.com/v1/history", { method, body, headers });
+  }
 
   return (
     <SafeAreaProvider>
@@ -34,7 +57,7 @@ export default function App() {
               style={[styles.input, { color: "#ffffff" }]}
               placeholder="Type something"
               placeholderTextColor="grey"
-              onChangeText={(text: string) => setText(text)}
+              onChangeText={onChange}
               multiline={true}
               value={input}
             />

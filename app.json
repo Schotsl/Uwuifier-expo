@@ -10,8 +10,9 @@
     "version": "1.0.0",
     "android": {
       "package": "com.sjorsvanholst.uwuifier",
-      "versionCode": 8,
-      "permissions": []
+      "versionCode": 9,
+      "permissions": [],
+      "backgroundColor": "#303030"
     },
     "splash": {
       "image": "./assets/splash.png",
