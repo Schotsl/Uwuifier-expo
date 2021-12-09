@@ -10,7 +10,7 @@
     "version": "1.0.0",
     "android": {
       "package": "com.sjorsvanholst.uwuifier",
-      "versionCode": 9,
+      "versionCode": 10,
       "permissions": ["INTERNET"],
       "backgroundColor": "#303030"
     },
