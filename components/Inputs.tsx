@@ -1,4 +1,4 @@
-import * as Clipboard from 'expo-clipboard';
+import * as Clipboard from "expo-clipboard";
 import React from "react";
 
 import Svg, { Path } from "react-native-svg";
