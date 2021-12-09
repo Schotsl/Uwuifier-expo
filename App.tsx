@@ -32,7 +32,7 @@ export default function App() {
   }
 
   function addHistory() {
-    const body = JSON.stringify({});
+    const body = JSON.stringify({ origin: "android" });
     const method = "POST";
     const headers = { "Content-Type": "application/json" };
 
