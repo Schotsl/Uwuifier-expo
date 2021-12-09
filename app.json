@@ -11,7 +11,7 @@
     "android": {
       "package": "com.sjorsvanholst.uwuifier",
       "versionCode": 9,
-      "permissions": [],
+      "permissions": ["INTERNET"],
       "backgroundColor": "#303030"
     },
     "splash": {
