@@ -1,31 +1,30 @@
 {
-  "name": "Uwuifier",
-  "orientation": "portrait",
-  "displayName": "Uwuifier",
-  "backgroundColor": "#303030",
   "expo": {
-    "name": "Uwuifier",
+    "name": "uwuifier",
     "slug": "uwuifier",
-    "icon": "./assets/logo.png",
     "version": "1.0.0",
-    "android": {
-      "package": "com.sjorsvanholst.uwuifier",
-      "versionCode": 10,
-      "permissions": ["INTERNET"],
-      "backgroundColor": "#303030"
-    },
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#303030"
+      "backgroundColor": "#ffffff"
     },
-    "androidStatusBar": {
-      "barStyle": "light-content",
-      "backgroundColor": "#252525"
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
     },
-    "androidNavigationBar": {
-      "barStyle": "light-content",
-      "backgroundColor": "#303030"
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
     }
   }
 }
