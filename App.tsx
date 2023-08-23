@@ -4,24 +4,27 @@ import Header from "./components/Header";
 import Editor from "./components/Editor";
 
 import { StatusBar } from "expo-status-bar";
+import { RootSiblingParent } from 'react-native-root-siblings';
 import { ScrollView, StyleSheet, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function App() {
   return (
-    <SafeAreaProvider>
-      <StatusBar style="light" />
+    <RootSiblingParent>
+      <SafeAreaProvider>
+        <StatusBar style="light" />
 
-      <SafeAreaView style={styles.body}>
-        <ScrollView>
-          <View style={styles.body__content}>
-            <Header />
+        <SafeAreaView style={styles.body}>
+          <ScrollView>
+            <View style={styles.body__content}>
+              <Header />
 
-            <Editor />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </SafeAreaProvider>
+              <Editor />
+            </View>
+          </ScrollView>
+        </SafeAreaView>
+      </SafeAreaProvider>
+    </RootSiblingParent>
   );
 }
 

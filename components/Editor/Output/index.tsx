@@ -21,7 +21,7 @@ export default function EditorOutput({ value }: EditorOutputProps) {
           </Text>
         </ScrollView>
         
-        <EditorOutputButtons uwuified={value} />
+        <EditorOutputButtons value={value} />
       </View>
     </View>
   );
