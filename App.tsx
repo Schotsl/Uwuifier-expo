@@ -3,14 +3,23 @@ import React from "react";
 import Header from "./components/Header";
 import Editor from "./components/Editor";
 
+import plausible from "./utils/plausible";
+
+import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { triggerPlausible } from "./helper";
 import { RootSiblingParent } from 'react-native-root-siblings';
-import { ScrollView, StyleSheet, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { ScrollView, StyleSheet, View } from "react-native";
+
 
 export default function App() {
-  triggerPlausible();
+  const [offset, setOffset] = useState(0);
+
+  plausible();
+
+  function handleUwuified() {
+    setOffset(offset + 1);
+  }
 
   return (
     <RootSiblingParent>
@@ -20,9 +29,9 @@ export default function App() {
         <SafeAreaView style={styles.body}>
           <ScrollView>
             <View style={styles.body__content}>
-              <Header />
+              <Header offset={offset} />
 
-              <Editor />
+              <Editor onUwuified={handleUwuified} />
             </View>
           </ScrollView>
         </SafeAreaView>

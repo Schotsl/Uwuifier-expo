@@ -1,14 +1,19 @@
 import React from "react";
 
+import Uwuifier from "../../utils/uwuifier";
+import plausible from "../../utils/plausible";
+
 import EditorInput from "./Input";
 import EditorOutput from "./Output";
 
-import { triggerPlausible } from "../../helper";
-import { useState, useRef, useEffect,MutableRefObject } from "react";
 import { View, StyleSheet } from "react-native";
-import Uwuifier from "../../uwuifier";
+import { useState, useRef, useEffect,MutableRefObject } from "react";
 
-export default function Editor() {
+type EditorProps = {
+  onUwuified: () => void;
+};
+
+export default function Editor({ onUwuified }: EditorProps) {
   const [typed, setTyped] = useState(false);
   const [input, setText] = useState(
     "Hey! This site can help you make any old boring text nice and uwu. We can't imagine anyone would actually use this, but you gotta do what you gotta do."
@@ -30,10 +35,12 @@ export default function Editor() {
       clearTimeout(timeout.current);
     }
 
-    // Set a new timer for 2.5 seconds
+    // Set a new timer for 1 second
     timeout.current = setTimeout(() => {
-      triggerPlausible("Uwuified sentence");
-    }, 2500);
+      onUwuified();
+
+      plausible("Uwuified sentence");
+    }, 1000);
 
     // Clear the timer on unmount or if the input changes
     return () => clearTimeout(timeout.current!);
@@ -63,8 +70,8 @@ export default function Editor() {
       <EditorOutput
         value={uwuifier.uwuifySentence(input)}
 
-        onCopy={() => triggerPlausible("Copied sentence")}
-        onShare={() => triggerPlausible("Shared sentence")}
+        onCopy={() => plausible("Copied sentence")}
+        onShare={() => plausible("Shared sentence")}
       />
     </View>
   );
