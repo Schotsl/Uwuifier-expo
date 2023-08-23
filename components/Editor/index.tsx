@@ -3,26 +3,57 @@ import React from "react";
 import EditorInput from "./Input";
 import EditorOutput from "./Output";
 
-import { useState } from "react";
+import { triggerPlausible } from "../../helper";
+import { useState, useRef, useEffect,MutableRefObject } from "react";
 import { View, StyleSheet } from "react-native";
-
 import Uwuifier from "../../uwuifier";
 
 export default function Editor() {
+  const [typed, setTyped] = useState(false);
   const [input, setText] = useState(
     "Hey! This site can help you make any old boring text nice and uwu. We can't imagine anyone would actually use this, but you gotta do what you gotta do."
   );
 
   const uwuifier = new Uwuifier();
-  
+
+  // We'll use this over-typed ref to store the timeout
+  const timeout: MutableRefObject<NodeJS.Timeout | null> = useRef(null);
+
+  useEffect(() => {
+    // We don't want too send a event when the app starts
+    if (!typed) {
+      return;
+    }
+
+    // Clear any existing timer whenever input changes
+    if (timeout.current) {
+      clearTimeout(timeout.current);
+    }
+
+    // Set a new timer for 2.5 seconds
+    timeout.current = setTimeout(() => {
+      triggerPlausible("Uwuified sentence");
+    }, 2500);
+
+    // Clear the timer on unmount or if the input changes
+    return () => clearTimeout(timeout.current!);
+  }, [input]);
+
+  function handleInput(text: string) {
+    setTyped(true);
+    setText(text);
+  }
+
   return (
     <View style={styles.editor}>
-      <EditorInput
-        value={input}
-        onChange={setText}
-      />
+      <EditorInput value={input} onChange={handleInput} />
 
-      <EditorOutput value={uwuifier.uwuifySentence(input)} />
+      <EditorOutput
+        value={uwuifier.uwuifySentence(input)}
+
+        onCopy={() => triggerPlausible("Copied sentence")}
+        onShare={() => triggerPlausible("Shared sentence")}
+      />
     </View>
   );
 }

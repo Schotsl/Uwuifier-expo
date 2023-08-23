@@ -15,9 +15,11 @@ import {
 
 interface Props {
   value: string;
+  onCopy: () => void;
+  onShare: () => void;
 }
 
-export default function OutputActions({ value }: Props) {
+export default function OutputActions({ value, onCopy, onShare }: Props) {
   async function copyText(message: string) {
     await Clipboard.setStringAsync(message);
 
@@ -25,10 +27,14 @@ export default function OutputActions({ value }: Props) {
     Toast.show('Copied to clipboard.', {
       duration: Toast.durations.SHORT,
     });
+
+    onCopy();
   }
 
   function shareText(message: string) {
     Share.share({ message });
+
+    onShare();
   }
 
   return (

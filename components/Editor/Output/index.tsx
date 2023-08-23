@@ -7,9 +7,11 @@ import { ScrollView, StyleSheet, View, Text } from 'react-native';
 
 type EditorOutputProps = {
   value: string;
+  onCopy: () => void;
+  onShare: () => void;
 }
 
-export default function EditorOutput({ value }: EditorOutputProps) {
+export default function EditorOutput({ value, onCopy, onShare }: EditorOutputProps) {
   return (
     <View>
       <EditorLabel color="#252525" background="#ffc83d" label="Output" />
@@ -21,7 +23,11 @@ export default function EditorOutput({ value }: EditorOutputProps) {
           </Text>
         </ScrollView>
         
-        <EditorOutputButtons value={value} />
+        <EditorOutputButtons
+          value={value} 
+          onCopy={onCopy}
+          onShare={onShare}
+        />
       </View>
     </View>
   );
