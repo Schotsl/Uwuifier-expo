@@ -1,6 +1,7 @@
 import React from 'react';
 import supabase from "../../utils/supabase";
 
+import { Image } from 'react-native';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { formatNumber } from '../../helper';
@@ -46,7 +47,11 @@ export default function Header({ offset }: HeaderProps) {
 
   return (
     <View style={styles.header}>
-      <Text style={styles.header__emoji}>🥺👉👈</Text>
+      <View style={styles.header__emoji}> 
+        <Image source={require('../../assets/emojis/pleading-face.png')} style={{width: 42 , height: 42 }}></Image>
+        <Image source={require('../../assets/emojis/backhand-index-pointing-right.png')} style={{width: 42 , height: 42 }}></Image>  
+        <Image source={require('../../assets/emojis/backhand-index-pointing-left.png')} style={{width: 42 , height: 42 }}></Image>
+      </View>
       
       <Text style={styles.header__title}>
         This month we've 
@@ -66,7 +71,8 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   header__emoji: {
-    fontSize: 32,
+    gap: 8,
+    flexDirection: 'row',
   },
   header__title: {
     color: "#ffffff",
