@@ -1,4 +1,5 @@
 import React from "react";
+import Constants from 'expo-constants';
 
 import Header from "./components/Header";
 import Editor from "./components/Editor";
@@ -8,9 +9,7 @@ import plausible from "./utils/plausible";
 import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { RootSiblingParent } from 'react-native-root-siblings';
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView, StyleSheet, View } from "react-native";
-
 
 export default function App() {
   const [offset, setOffset] = useState(0);
@@ -23,19 +22,17 @@ export default function App() {
 
   return (
     <RootSiblingParent>
-      <SafeAreaProvider>
-        <StatusBar style="light" />
+      <StatusBar style="light" />
 
-        <SafeAreaView style={styles.body}>
-          <ScrollView>
-            <View style={styles.body__content}>
-              <Header offset={offset} />
+      <View style={[styles.body, {paddingTop: Constants.statusBarHeight}]}>
+        <ScrollView>
+          <View style={styles.body__content}>
+            <Header offset={offset} />
 
-              <Editor onUwuified={handleUwuified} />
-            </View>
-          </ScrollView>
-        </SafeAreaView>
-      </SafeAreaProvider>
+            <Editor onUwuified={handleUwuified} />
+          </View>
+        </ScrollView>
+      </View>
     </RootSiblingParent>
   );
 }

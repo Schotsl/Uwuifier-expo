@@ -1,6 +1,6 @@
 {
   "expo": {
-    "icon": "./assets/logo.png",
+    "icon": "./assets/icon.png",
     "name": "uwuifier",
     "slug": "uwuifier",
     "version": "2.0.0",
