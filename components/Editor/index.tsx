@@ -44,11 +44,19 @@ export default function Editor() {
     setText(text);
   }
 
+  function handleFocus() {
+    if (typed) {
+      return;
+    }
+
+    setText("");
+  }
+
   return (
     <View style={styles.editor}>
       <EditorInput
         value={input}
-        onFocus={() => setText("")}
+        onFocus={handleFocus}
         onChange={handleInput}  
       />
 
