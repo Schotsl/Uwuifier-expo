@@ -17,8 +17,8 @@ export default function EditorOutput({ value, onCopy, onShare }: EditorOutputPro
       <EditorLabel color="#252525" background="#ffc83d" label="Output" />
 
       <View style={styles.output}>
-        <ScrollView style={styles.output__text}>
-          <Text>
+        <ScrollView>
+          <Text style={styles.output__text}>
             { value }
           </Text>
         </ScrollView>
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   output__text: {
     color: "#252525",
     height: 200,
-    fontSize: 16,
+    fontSize: 17,
     marginVertical: 16,
   },
 });

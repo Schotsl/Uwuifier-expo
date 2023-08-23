@@ -12,7 +12,7 @@ type HeaderProps = {
 }
 
 export default function Header({ offset }: HeaderProps) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(24956);
 
   async function subscribeStatistics() {
     supabase
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   },
   header__title: {
     color: "#ffffff",
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: "400",
   },
   header__title__bold: {
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   header__subtitle: {
     color: "#ffffff",
     opacity: 0.5,
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: "700",
   },
 });

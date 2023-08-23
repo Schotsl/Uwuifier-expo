@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   content: {
-    fontSize: 16,
+    fontSize: 17,
     fontWeight: "bold",
     textAlign: "center",
   },

@@ -16,12 +16,12 @@ export default function EditorInput({
   onChange,
 }: EditorInputProps) {
   return (
-    <View>
+    <View style={styles.input}>
       <EditorLabel color="#fff" background="#252525" label="Input" />
 
-      <View style={styles.input}>
+      <View style={styles.input__wrapper}>
         <TextInput
-          style={styles.input__element}
+          style={styles.input__wrapper__element}
           value={value}
           multiline={true}
           onFocus={onFocus}
@@ -37,9 +37,12 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: "#252525",
   },
-  input__element: {
+  input__wrapper: {
+    height: 225,
+  },
+  input__wrapper__element: {
     color: "#ffffff",
-    height: 200,
+    fontSize: 17,
     marginVertical: 16,
     paddingHorizontal: 20,
   },

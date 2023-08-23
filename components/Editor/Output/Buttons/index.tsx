@@ -58,8 +58,9 @@ export default function OutputActions({ value, onCopy, onShare }: Props) {
 
 const styles = StyleSheet.create({
   buttons: {
-    flexDirection: "row",
+    gap: 16,
     paddingBottom: 24,
+    flexDirection: "row",
   },
   buttons__button: {
     gap: 16,
@@ -73,11 +74,11 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 4, height: 4 },
     shadowRadius: 4,
     shadowOpacity: 0.2,
-    marginRight: 10,
   },
   buttons__button__text: {
     color: "#ffffff",
-    fontSize: 16,
-    fontWeight: "500",
+    fontSize: 17,
+    fontWeight: "600",
+    marginBottom: 1
   },
 });

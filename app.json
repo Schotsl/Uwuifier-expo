@@ -32,7 +32,7 @@
     },
     "androidStatusBar": {
       "barStyle": "light-content",
-      "backgroundColor": "#252525"
+      "backgroundColor": "#303030"
     },
     "androidNavigationBar": {
       "barStyle": "light-content",
