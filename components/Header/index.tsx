@@ -44,10 +44,6 @@ export default function Header({ offset }: HeaderProps) {
     subscribeStatistics();
   }, []);
 
-  useEffect(() => {
-    console.log(offset);
-  }, [offset]);
-
   return (
     <View style={styles.header}>
       <Text style={styles.header__emoji}>🥺👉👈</Text>
