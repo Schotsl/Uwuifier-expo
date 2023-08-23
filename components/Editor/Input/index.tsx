@@ -41,6 +41,6 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     height: 200,
     marginVertical: 16,
-    paddingHorizontal: 24,
+    paddingHorizontal: 20,
   },
 });

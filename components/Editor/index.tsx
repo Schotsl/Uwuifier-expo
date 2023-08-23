@@ -81,9 +81,10 @@ const styles = StyleSheet.create({
   editor: {
     flex: 1,
     overflow: "hidden",
+    backgroundColor: "#ffc83d",
 
     marginTop: 12,
-    marginHorizontal: -8,
+    marginHorizontal: -16,
     borderRadius: 32,
 
     shadowColor: "black",
