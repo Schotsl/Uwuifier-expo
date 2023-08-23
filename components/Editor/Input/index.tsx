@@ -6,11 +6,13 @@ import { View, TextInput, StyleSheet } from "react-native";
 
 type EditorInputProps = {
   value: string;
+  onFocus: () => void;
   onChange: (text: string) => void;
 };
 
 export default function EditorInput({
   value,
+  onFocus,
   onChange,
 }: EditorInputProps) {
   return (
@@ -22,6 +24,7 @@ export default function EditorInput({
           style={styles.input__element}
           value={value}
           multiline={true}
+          onFocus={onFocus}
           onChangeText={onChange}
           placeholderTextColor="grey"
         />

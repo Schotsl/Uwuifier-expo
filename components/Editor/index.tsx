@@ -46,7 +46,11 @@ export default function Editor() {
 
   return (
     <View style={styles.editor}>
-      <EditorInput value={input} onChange={handleInput} />
+      <EditorInput
+        value={input}
+        onFocus={() => setText("")}
+        onChange={handleInput}  
+      />
 
       <EditorOutput
         value={uwuifier.uwuifySentence(input)}
