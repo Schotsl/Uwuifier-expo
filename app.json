@@ -1,7 +1,7 @@
 {
   "expo": {
     "icon": "./assets/icon.png",
-    "name": "uwuifier",
+    "name": "Uwuifier",
     "slug": "uwuifier",
     "version": "2.0.0",
     "orientation": "portrait",
@@ -25,7 +25,7 @@
         "foregroundImage": "./assets/adaptive-icon.png"
       },
       "package": "com.sjorsvanholst.uwuifier",
-      "versionCode": 10,
+      "versionCode": 11,
       "permissions": [
         "INTERNET"
       ]
