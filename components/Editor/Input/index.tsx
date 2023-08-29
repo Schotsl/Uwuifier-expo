@@ -37,11 +37,9 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: "#252525",
   },
-  input__wrapper: {
-    height: 225,
-  },
   input__wrapper__element: {
     color: "#ffffff",
+    height: 225,
     fontSize: 17,
     marginVertical: 16,
     paddingHorizontal: 20,
