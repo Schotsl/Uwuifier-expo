@@ -25,7 +25,7 @@
         "foregroundImage": "./assets/adaptive-icon.png"
       },
       "package": "com.sjorsvanholst.uwuifier",
-      "versionCode": 11,
+      "versionCode": 12,
       "permissions": [
         "INTERNET"
       ]
