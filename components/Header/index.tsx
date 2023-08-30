@@ -3,8 +3,8 @@ import supabase from "../../utils/supabase";
 
 import { Image } from 'react-native';
 import { useState } from 'react';
-import { useEffect } from 'react';
 import { formatNumber } from '../../helper';
+import { useEffect, useRef } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 
 type HeaderProps = {
@@ -13,6 +13,12 @@ type HeaderProps = {
 
 export default function Header({ offset }: HeaderProps) {
   const [count, setCount] = useState(24956);
+
+  const reference = useRef(offset);
+
+  useEffect(() => {
+    reference.current = offset;
+  }, [offset]);
 
   async function subscribeStatistics() {
     supabase
@@ -25,7 +31,7 @@ export default function Header({ offset }: HeaderProps) {
         schema: 'public'
       },
       (payload) => {
-        setCount(payload.new.uwuified_sentence - offset);
+        setCount(payload.new.uwuified_sentence - reference.current);
       }
     )
     .subscribe()
