@@ -1,26 +1,22 @@
-import * as Device from 'expo-device';
-
 import { Dimensions } from 'react-native';
 
-const APP_NAME = "uwuifier";
-const APP_VERSION = "1.0.0"; 
+import Constants from 'expo-constants';
 
-const TARGET_URL = "https://uwuifier.com";
-const TARGET_DOMAIN = "uwuifier.com";
-
-export async function createUserAgent() {
-  const deviceBrand = Device.brand;
-  const deviceModel = Device.modelName;
-
-  const systemName = Device.osName;
-  const systemVersion = Device.osVersion;
-  
-  return `User-Agent: ${APP_NAME}/${APP_VERSION} (${deviceBrand}; ${systemName} ${systemVersion}; ${deviceModel}; Tablet)`;
-}
+const TARGET_URL = "https://wanneer-naar-terschelling.nl";
+const TARGET_DOMAIN = "wanneer-naar-terschelling.nl";
 
 export default async (event: string = "pageview") => {
-  const agent = await createUserAgent();
+  // Fetch the WebView's user-agent string
+  const agent = await Constants.getWebViewUserAgentAsync();
   const width = Dimensions.get("window").width;
+
+  console.log(agent)
+
+  // If agent isn't available, don't continue
+  if (!agent) {
+    console.log('Failed to fetch WebView user-agent.');
+    return;
+  }
 
   try {
       const timeout = setTimeout(() => controller.abort(), 5000);
@@ -47,6 +43,6 @@ export default async (event: string = "pageview") => {
 
       clearTimeout(timeout);
   } catch (e) {
-      console.log("Couldn't send event to Plausible.")
+    console.log("Couldn't send event to Plausible.")
   }
 }
