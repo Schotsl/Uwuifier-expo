@@ -3,7 +3,7 @@
     "icon": "./assets/icon.png",
     "name": "Uwuifier",
     "slug": "uwuifier",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "orientation": "portrait",
     "backgroundColor": "#303030",
     "userInterfaceStyle": "light",
@@ -25,7 +25,7 @@
         "foregroundImage": "./assets/adaptive-icon.png"
       },
       "package": "com.sjorsvanholst.uwuifier",
-      "versionCode": 12,
+      "versionCode": 13,
       "permissions": [
         "INTERNET"
       ]
