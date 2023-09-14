@@ -7,7 +7,7 @@ import { Image } from "react-native";
 import { useState } from "react";
 import { formatNumber } from "../../helper";
 import { useEffect, useRef } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, AppState } from "react-native";
 
 type HeaderProps = {
   offset: number;
@@ -15,6 +15,8 @@ type HeaderProps = {
 
 export default function Header({ offset }: HeaderProps) {
   const uwuifier = new Uwuifier();
+
+  const [state, setState] = useState(AppState.currentState);
 
   const [count, setCount] = useState(24956);
   const [loaded, setLoaded] = useState(false);
@@ -98,6 +100,22 @@ export default function Header({ offset }: HeaderProps) {
     LoadStatistics();
 
     subscribeStatistics();
+  }, []);
+
+  useEffect(() => {
+    if (state === "active") {
+      subscribeStatistics();
+    }
+  }, [state]);
+
+  useEffect(() => {
+    const listener = AppState.addEventListener("change", (state) =>
+      setState(state)
+    );
+
+    return () => {
+      listener.remove();
+    };
   }, []);
 
   return (
