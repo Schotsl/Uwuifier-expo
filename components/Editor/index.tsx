@@ -6,14 +6,16 @@ import plausible from "../../utils/plausible";
 import EditorInput from "./Input";
 import EditorOutput from "./Output";
 
+import { Keyboard } from "react-native";
 import { View, StyleSheet } from "react-native";
-import { useState, useRef, useEffect,MutableRefObject } from "react";
+import { useState, useRef, useEffect, MutableRefObject } from "react";
 
 type EditorProps = {
   onUwuified: () => void;
 };
 
 export default function Editor({ onUwuified }: EditorProps) {
+  const [visible, setVisible] = useState(false);
   const [typed, setTyped] = useState(false);
   const [input, setText] = useState(
     "Hey! This site can help you make any old boring text nice and uwu. We can't imagine anyone would actually use this, but you gotta do what you gotta do."
@@ -23,6 +25,27 @@ export default function Editor({ onUwuified }: EditorProps) {
 
   // We'll use this over-typed ref to store the timeout
   const timeout: MutableRefObject<NodeJS.Timeout | null> = useRef(null);
+
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      "keyboardDidShow",
+      () => {
+        setVisible(true);
+      }
+    );
+
+    const keyboardDidHideListener = Keyboard.addListener(
+      "keyboardDidHide",
+      () => {
+        setVisible(false);
+      }
+    );
+
+    return () => {
+      keyboardDidHideListener.remove();
+      keyboardDidShowListener.remove();
+    };
+  }, []);
 
   useEffect(() => {
     // We don't want too send a event when the app starts
@@ -51,6 +74,14 @@ export default function Editor({ onUwuified }: EditorProps) {
     setText(text);
   }
 
+  function handleTap() {
+    if (visible) {
+      setTimeout(() => {
+        Keyboard.dismiss();
+      }, 250);
+    }
+  }
+
   function handleFocus() {
     if (typed) {
       return;
@@ -63,13 +94,13 @@ export default function Editor({ onUwuified }: EditorProps) {
     <View style={styles.editor}>
       <EditorInput
         value={input}
+        onTap={handleTap}
         onFocus={handleFocus}
-        onChange={handleInput}  
+        onChange={handleInput}
       />
 
       <EditorOutput
         value={uwuifier.uwuifySentence(input)}
-
         onCopy={() => plausible("Copied sentence")}
         onShare={() => plausible("Shared sentence")}
       />
