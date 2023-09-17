@@ -7,7 +7,13 @@ import { Image } from "react-native";
 import { useState } from "react";
 import { formatNumber } from "../../helper";
 import { useEffect, useRef } from "react";
-import { Text, View, StyleSheet, AppState } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  AppState,
+  ActivityIndicator,
+} from "react-native";
 
 type HeaderProps = {
   offset: number;
@@ -19,8 +25,10 @@ export default function Header({ offset }: HeaderProps) {
   const [state, setState] = useState(AppState.currentState);
 
   const [count, setCount] = useState(24956);
-  const [loaded, setLoaded] = useState(false);
   const [personal, setPersonal] = useState(0);
+
+  const [loadingPersonal, setLoadingPersonal] = useState(true);
+  const [loadingStatistics, setLoadingStatistics] = useState(true);
 
   const startSentence = uwuifier.uwuifySentence("And ");
   const endSentence = uwuifier.uwuifySentence(" of those were your fault!");
@@ -36,7 +44,7 @@ export default function Header({ offset }: HeaderProps) {
   }, [offset]);
 
   useEffect(() => {
-    if (!loaded) {
+    if (loadingPersonal) {
       return;
     }
 
@@ -78,6 +86,7 @@ export default function Header({ offset }: HeaderProps) {
         .single();
 
       setCount(data?.uwuified_sentence);
+      setLoadingStatistics(false);
     } catch (error) {
       console.error("Error loading statistics:", error);
     }
@@ -88,8 +97,8 @@ export default function Header({ offset }: HeaderProps) {
       const value = await AsyncStorage.getItem("personal");
       const parsed = value ? JSON.parse(value) : 0;
 
-      setLoaded(true);
       setPersonal(parsed);
+      setLoadingPersonal(false);
     } catch (error) {
       console.error("Error loading personal data:", error);
     }
@@ -138,7 +147,15 @@ export default function Header({ offset }: HeaderProps) {
       <Text style={styles.header__title}>
         This month we've
         <Text style={styles.header__title__bold}> uwuified </Text>
-        over <Text>{formatNumber(count + offset)}</Text> sentences!
+        over {/* If loading is true show indicator, otherwise show text */}
+        {loadingStatistics ? (
+          <View style={styles.header__title__bold__loader}>
+            <ActivityIndicator size="small" color="#fff" />
+          </View>
+        ) : (
+          <Text>{formatNumber(count + offset)}</Text>
+        )}{" "}
+        sentences!
       </Text>
 
       <Text style={styles.header__subtitle}>
@@ -167,6 +184,9 @@ const styles = StyleSheet.create({
   },
   header__title__bold: {
     fontWeight: "700",
+  },
+  header__title__bold__loader: {
+    paddingHorizontal: 16,
   },
   header__subtitle: {
     color: "#ffffff",
