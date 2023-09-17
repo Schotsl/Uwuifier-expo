@@ -41,6 +41,8 @@ export default function OutputActions({ value, onCopy, onShare }: Props) {
           <Path
             fill="white"
             fillRule="evenodd"
+            stroke="white"
+            strokeWidth="0.5"
             d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"
           />
         </Svg>
@@ -51,6 +53,8 @@ export default function OutputActions({ value, onCopy, onShare }: Props) {
           <Path
             fill="white"
             fillRule="evenodd"
+            stroke="white"
+            strokeWidth="0.5"
             d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"
           />
         </Svg>
@@ -75,15 +79,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     borderRadius: 32,
     backgroundColor: "#252525",
-    shadowColor: "black",
-    shadowOffset: { width: 4, height: 4 },
-    shadowRadius: 4,
-    shadowOpacity: 0.2,
+    borderColor: "#fff",
+    borderWidth: 2,
+    borderStyle: "solid",
   },
   buttons__button__text: {
     color: "#ffffff",
     fontSize: 17,
-    fontWeight: "600",
+    fontWeight: "700",
     marginBottom: 1,
   },
 });
