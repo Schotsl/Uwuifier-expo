@@ -31,13 +31,11 @@ export default function App() {
       <StatusBar style="light" />
 
       <View style={[styles.body, { paddingTop: Constants.statusBarHeight }]}>
-        <ScrollView>
-          <View style={styles.body__content}>
-            <Header offset={offset} />
+        <View style={styles.body__content}>
+          <Header offset={offset} />
 
-            <Editor onUwuified={handleUwuified} />
-          </View>
-        </ScrollView>
+          <Editor onUwuified={handleUwuified} />
+        </View>
       </View>
     </RootSiblingParent>
   );
@@ -45,10 +43,12 @@ export default function App() {
 
 const styles = StyleSheet.create({
   body: {
+    flex: 1,
     backgroundColor: "#303030",
   },
   body__content: {
     gap: 16,
+    flex: 1,
     paddingVertical: 16,
     paddingHorizontal: 32,
   },

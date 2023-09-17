@@ -2,16 +2,10 @@ import * as Clipboard from "expo-clipboard";
 
 import Svg from "react-native-svg";
 import React from "react";
-import Toast from 'react-native-root-toast'
+import Toast from "react-native-root-toast";
 
 import { Path } from "react-native-svg";
-import {
-  Text,
-  View,
-  Share,
-  Pressable,
-  StyleSheet,
-} from "react-native";
+import { Text, View, Share, Pressable, StyleSheet } from "react-native";
 
 interface Props {
   value: string;
@@ -24,7 +18,7 @@ export default function OutputActions({ value, onCopy, onShare }: Props) {
     await Clipboard.setStringAsync(message);
 
     // Since iOS has no support for Toast we'll use a generic Toast library
-    Toast.show('Copied to clipboard.', {
+    Toast.show("Copied to clipboard.", {
       duration: Toast.durations.SHORT,
     });
 
@@ -39,15 +33,26 @@ export default function OutputActions({ value, onCopy, onShare }: Props) {
 
   return (
     <View style={styles.buttons}>
-      <Pressable style={styles.buttons__button} onPress={() => shareText(value)}>
+      <Pressable
+        style={styles.buttons__button}
+        onPress={() => shareText(value)}
+      >
         <Svg width="18" height="18" viewBox="0 0 24 24">
-          <Path fill="white" fillRule="evenodd" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z" />
+          <Path
+            fill="white"
+            fillRule="evenodd"
+            d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"
+          />
         </Svg>
       </Pressable>
 
       <Pressable style={styles.buttons__button} onPress={() => copyText(value)}>
         <Svg width="18" height="18" viewBox="0 0 24 24">
-          <Path fill="white" fillRule="evenodd" d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z" />
+          <Path
+            fill="white"
+            fillRule="evenodd"
+            d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"
+          />
         </Svg>
 
         <Text style={styles.buttons__button__text}>Copy text</Text>
@@ -79,6 +84,6 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     fontSize: 17,
     fontWeight: "600",
-    marginBottom: 1
+    marginBottom: 1,
   },
 });

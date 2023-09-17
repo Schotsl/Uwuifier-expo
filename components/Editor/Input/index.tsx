@@ -21,28 +21,28 @@ export default function EditorInput({
     <View style={styles.input}>
       <EditorLabel color="#fff" background="#252525" label="Input" />
 
-      <View>
-        <TextInput
-          style={styles.input__wrapper__element}
-          value={value}
-          multiline={true}
-          onFocus={onFocus}
-          onPressIn={onTap}
-          onChangeText={onChange}
-          placeholderTextColor="grey"
-        />
-      </View>
+      <TextInput
+        style={styles.input__wrapper__element}
+        value={value}
+        multiline={true}
+        onFocus={onFocus}
+        onPressIn={onTap}
+        onChangeText={onChange}
+        placeholderTextColor="grey"
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   input: {
+    height: "50%",
     backgroundColor: "#252525",
   },
   input__wrapper__element: {
+    flex: 1,
+    height: "100%",
     color: "#ffffff",
-    height: 225,
     fontSize: 17,
     marginVertical: 16,
     paddingHorizontal: 20,
