@@ -18,7 +18,7 @@ export default function Editor({ onUwuified }: EditorProps) {
   const [visible, setVisible] = useState(false);
   const [typed, setTyped] = useState(false);
   const [input, setText] = useState(
-    "Hey! This site can help you make any old boring text nice and uwu. We can't imagine anyone would actually use this, but you gotta do what you gotta do."
+    "According to all known laws of aviation, there is no way that a bee should be able to fly. Its wings are too small to get its fat little body off the ground."
   );
 
   const uwuifier = new Uwuifier();
