@@ -60,9 +60,15 @@ export default function Editor({ onUwuified }: EditorProps) {
 
     // Set a new timer for 1 second
     timeout.current = setTimeout(() => {
-      onUwuified();
+      // Only increase the counter if the input is not empty
+      const inputTrimmed = input.trim();
+      const inputLength = inputTrimmed.length;
 
-      plausible("Uwuified sentence");
+      if (inputLength > 0) {
+        onUwuified();
+
+        plausible("Uwuified sentence");
+      }
     }, 1000);
 
     // Clear the timer on unmount or if the input changes
