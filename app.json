@@ -12,9 +12,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#303030"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.sjorsvanholst.uwuifier"
@@ -26,9 +24,7 @@
       },
       "package": "com.sjorsvanholst.uwuifier",
       "versionCode": 13,
-      "permissions": [
-        "INTERNET"
-      ]
+      "permissions": ["INTERNET"]
     },
     "androidStatusBar": {
       "barStyle": "light-content",
@@ -42,6 +38,7 @@
       "eas": {
         "projectId": "f303e0ab-1db4-410a-8de1-489e775b2629"
       }
-    }
+    },
+    "plugins": ["sentry-expo"]
   }
 }
