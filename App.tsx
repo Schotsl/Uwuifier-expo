@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Constants from "expo-constants";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import Header from "./components/Header";
 import Editor from "./components/Editor";
-
 import plausible from "./utils/plausible";
 
-import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { RootSiblingParent } from "react-native-root-siblings";
 import { StyleSheet, View } from "react-native";
+import { RootSiblingParent } from "react-native-root-siblings";
+import { useState, useEffect } from "react";
 
+import * as StoreReview from "expo-store-review";
 import * as Sentry from "sentry-expo";
 
 Sentry.init({
@@ -49,13 +49,33 @@ export default function App() {
 
   async function loadPersonal() {
     try {
-      const value = await AsyncStorage.getItem("personal");
-      const parsed = value ? JSON.parse(value) : 0;
+      const rawPersonal = await AsyncStorage.getItem("personal");
+      const rawShown = await AsyncStorage.getItem("shown");
 
-      setPersonal(parsed);
+      const parsedPersonal = rawPersonal ? JSON.parse(rawPersonal) : 0;
+      const parsedShown = rawShown ? JSON.parse(rawShown) : false;
+
+      setPersonal(parsedPersonal);
       setLoading(false);
+
+      if (parsedPersonal < 100 || parsedShown) {
+        return;
+      }
+
+      // Prevent the popup from showing again
+      AsyncStorage.setItem("shown", JSON.stringify(true));
+
+      showReview();
     } catch (error) {
       console.error("Error loading personal data:", error);
+    }
+  }
+
+  async function showReview() {
+    try {
+      await StoreReview.requestReview();
+    } catch (error) {
+      console.error("Error showing review:", error);
     }
   }
 
