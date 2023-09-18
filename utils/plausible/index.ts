@@ -17,9 +17,6 @@ export default async (event: string = "pageview") => {
   }
 
   try {
-    const timeout = setTimeout(() => controller.abort(), 5000);
-    const controller = new AbortController();
-
     await fetch(
       "https://plausible.hedium.nl/api/event",
       {
@@ -35,11 +32,8 @@ export default async (event: string = "pageview") => {
           w: width,
           u: TARGET_URL,
         }),
-        signal: controller.signal,
       },
     );
-
-    clearTimeout(timeout);
   } catch (e) {
     console.log("Couldn't send event to Plausible.");
   }
