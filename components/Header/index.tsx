@@ -22,10 +22,9 @@ type HeaderProps = {
 export default function Header({ offset, personal }: HeaderProps) {
   const uwuifier = new Uwuifier();
 
-  const [state, setState] = useState(AppState.currentState);
   const [count, setCount] = useState(24956);
-
-  const [loadingStatistics, setLoadingStatistics] = useState(true);
+  const [state, setState] = useState(AppState.currentState);
+  const [loading, setLoading] = useState(true);
 
   const startSentence = uwuifier.uwuifySentence("And ");
   const endSentence = uwuifier.uwuifySentence(" of those were your fault!");
@@ -65,8 +64,12 @@ export default function Header({ offset, personal }: HeaderProps) {
         .select("uwuified_sentence")
         .single();
 
-      setCount(data?.uwuified_sentence);
-      setLoadingStatistics(false);
+      if (!data) {
+        return;
+      }
+
+      setCount(data.uwuified_sentence);
+      setLoading(false);
     } catch (error) {
       console.error("Error loading statistics:", error);
     }
@@ -114,7 +117,7 @@ export default function Header({ offset, personal }: HeaderProps) {
         This month we've
         <Text style={styles.header__title__bold}> uwuified </Text>
         over {/* If loading is true show indicator, otherwise show text */}
-        {loadingStatistics ? (
+        {loading ? (
           <View style={styles.header__title__bold__loader}>
             <ActivityIndicator size="small" color="#fff" />
           </View>
