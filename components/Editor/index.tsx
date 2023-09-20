@@ -15,6 +15,7 @@ type EditorProps = {
 };
 
 export default function Editor({ onUwuified }: EditorProps) {
+  const [output, setOutput] = useState("");
   const [typed, setTyped] = useState(false);
   const [input, setText] = useState(
     "According to all known laws of aviation, there is no way that a bee should be able to fly. Its wings are too small to get its fat little body off the ground."
@@ -53,6 +54,12 @@ export default function Editor({ onUwuified }: EditorProps) {
     return () => clearTimeout(timeout.current!);
   }, [input]);
 
+  useEffect(() => {
+    const uwuified = uwuifier.uwuifySentence(input);
+
+    setOutput(uwuified);
+  }, [input]);
+
   function handleInput(text: string) {
     setTyped(true);
     setText(text);
@@ -70,10 +77,10 @@ export default function Editor({ onUwuified }: EditorProps) {
     <View style={styles.editor}>
       <EditorInput value={input} onFocus={handleFocus} onChange={handleInput} />
 
-      <EditorOutput value={uwuifier.uwuifySentence(input)} />
+      <EditorOutput value={output} />
 
       <EditorButtons
-        value={uwuifier.uwuifySentence(input)}
+        value={output}
         onCopy={() => plausible("Copied sentence")}
         onShare={() => plausible("Shared sentence")}
       />
