@@ -24,7 +24,7 @@
         "foregroundImage": "./assets/adaptive-icon.png"
       },
       "package": "com.sjorsvanholst.uwuifier",
-      "versionCode": 16,
+      "versionCode": 17,
       "permissions": ["INTERNET"]
     },
     "androidStatusBar": {
