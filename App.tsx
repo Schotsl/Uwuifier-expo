@@ -18,6 +18,7 @@ import {
   ScrollView,
   Dimensions,
   StyleSheet,
+  ActivityIndicator,
   TouchableWithoutFeedback,
 } from "react-native";
 
@@ -154,29 +155,36 @@ export default function App() {
             <View style={styles.scroll__body__content}>
               <Header offset={offset} personal={personal} />
 
-              <BannerAd
-                size={size}
-                unitId={
-                  Platform.OS === "ios"
-                    ? "ca-app-pub-4498280233730795/2148935080"
-                    : "ca-app-pub-4498280233730795/9069566658"
-                }
-                requestOptions={{
-                  requestNonPersonalizedAdsOnly: true,
-                  keywords: [
-                    "uwu",
-                    "owo",
-                    "cute",
-                    "anime",
-                    "kawaii",
-                    "uwuify",
-                    "owoify",
-                    "uwuifier",
-                    "owoifier",
-                    "emoticons",
-                  ],
-                }}
-              />
+              <View style={styles.scroll__body__content__ad}>
+                <View style={styles.scroll__body__content__ad__wrapper}>
+                  <BannerAd
+                    size={size}
+                    unitId={
+                      Platform.OS === "ios"
+                        ? "ca-app-pub-4498280233730795/2148935080"
+                        : "ca-app-pub-4498280233730795/9069566658"
+                    }
+                    requestOptions={{
+                      requestNonPersonalizedAdsOnly: true,
+                      keywords: [
+                        "uwu",
+                        "owo",
+                        "cute",
+                        "anime",
+                        "kawaii",
+                        "uwuify",
+                        "owoify",
+                        "uwuifier",
+                        "owoifier",
+                        "emoticons",
+                      ],
+                    }}
+                  />
+                </View>
+                <View style={styles.scroll__body__content__ad__cover}>
+                  <ActivityIndicator size={"small"} color="#fff" />
+                </View>
+              </View>
 
               <Editor onUwuified={handleUwuified} />
             </View>
@@ -201,5 +209,21 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 16,
     paddingHorizontal: 32,
+  },
+  scroll__body__content__ad: {
+    overflow: "hidden",
+    position: "relative",
+    borderRadius: 8,
+  },
+  scroll__body__content__ad__wrapper: {
+    zIndex: 1,
+  },
+  scroll__body__content__ad__cover: {
+    width: "100%",
+    height: "100%",
+    opacity: 0.75,
+    position: "absolute",
+    justifyContent: "center",
+    backgroundColor: "#252525",
   },
 });
