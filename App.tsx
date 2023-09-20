@@ -10,6 +10,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 import { RootSiblingParent } from "react-native-root-siblings";
 import { useState, useEffect } from "react";
+import { TouchableWithoutFeedback, Keyboard } from "react-native";
 
 import * as StoreReview from "expo-store-review";
 import * as Sentry from "sentry-expo";
@@ -92,17 +93,23 @@ export default function App() {
     setOffset(offset + 1);
   }
 
+  function handleDismiss() {
+    Keyboard.dismiss();
+  }
+
   return (
     <RootSiblingParent>
       <StatusBar style="light" />
 
-      <View style={[styles.body, { paddingTop: Constants.statusBarHeight }]}>
-        <View style={styles.body__content}>
-          <Header offset={offset} personal={personal} />
+      <TouchableWithoutFeedback onPress={handleDismiss}>
+        <View style={[styles.body, { paddingTop: Constants.statusBarHeight }]}>
+          <View style={styles.body__content}>
+            <Header offset={offset} personal={personal} />
 
-          <Editor onUwuified={handleUwuified} />
+            <Editor onUwuified={handleUwuified} />
+          </View>
         </View>
-      </View>
+      </TouchableWithoutFeedback>
     </RootSiblingParent>
   );
 }

@@ -15,7 +15,6 @@ type EditorProps = {
 };
 
 export default function Editor({ onUwuified }: EditorProps) {
-  const [visible, setVisible] = useState(false);
   const [typed, setTyped] = useState(false);
   const [input, setText] = useState(
     "According to all known laws of aviation, there is no way that a bee should be able to fly. Its wings are too small to get its fat little body off the ground."
@@ -25,27 +24,6 @@ export default function Editor({ onUwuified }: EditorProps) {
 
   // We'll use this over-typed ref to store the timeout
   const timeout: MutableRefObject<NodeJS.Timeout | null> = useRef(null);
-
-  useEffect(() => {
-    const keyboardDidShowListener = Keyboard.addListener(
-      "keyboardDidShow",
-      () => {
-        setVisible(true);
-      }
-    );
-
-    const keyboardDidHideListener = Keyboard.addListener(
-      "keyboardDidHide",
-      () => {
-        setVisible(false);
-      }
-    );
-
-    return () => {
-      keyboardDidHideListener.remove();
-      keyboardDidShowListener.remove();
-    };
-  }, []);
 
   useEffect(() => {
     // We don't want too send a event when the app starts
@@ -80,14 +58,6 @@ export default function Editor({ onUwuified }: EditorProps) {
     setText(text);
   }
 
-  function handleTap() {
-    if (visible) {
-      setTimeout(() => {
-        Keyboard.dismiss();
-      }, 250);
-    }
-  }
-
   function handleFocus() {
     if (typed) {
       return;
@@ -98,12 +68,7 @@ export default function Editor({ onUwuified }: EditorProps) {
 
   return (
     <View style={styles.editor}>
-      <EditorInput
-        value={input}
-        onTap={handleTap}
-        onFocus={handleFocus}
-        onChange={handleInput}
-      />
+      <EditorInput value={input} onFocus={handleFocus} onChange={handleInput} />
 
       <EditorOutput
         value={uwuifier.uwuifySentence(input)}

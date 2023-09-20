@@ -6,14 +6,12 @@ import { View, TextInput, StyleSheet } from "react-native";
 
 type EditorInputProps = {
   value: string;
-  onTap: () => void;
   onFocus: () => void;
   onChange: (text: string) => void;
 };
 
 export default function EditorInput({
   value,
-  onTap,
   onFocus,
   onChange,
 }: EditorInputProps) {
@@ -26,8 +24,8 @@ export default function EditorInput({
         value={value}
         multiline={true}
         onFocus={onFocus}
-        onPressIn={onTap}
         onChangeText={onChange}
+        textAlignVertical="top"
         placeholderTextColor="grey"
       />
     </View>
