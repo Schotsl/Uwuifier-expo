@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import Editor from "./components/Editor";
 import plausible from "./utils/plausible";
 
-import { AppState } from "react-native";
+import { AppState, ScrollView } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 import { RootSiblingParent } from "react-native-root-siblings";
@@ -125,38 +125,60 @@ export default function App() {
     <RootSiblingParent>
       <StatusBar style="light" />
 
-      <TouchableWithoutFeedback onPress={handleDismiss}>
-        <View style={[styles.body, { paddingTop: Constants.statusBarHeight }]}>
-          <View style={styles.body__content}>
-            <Header offset={offset} personal={personal} />
+      <ScrollView style={styles.scroll} contentContainerStyle={styles.scroll}>
+        <TouchableWithoutFeedback onPress={handleDismiss}>
+          <View
+            style={[
+              styles.scroll__body,
+              { paddingTop: Constants.statusBarHeight },
+            ]}
+          >
+            <View style={styles.scroll__body__content}>
+              <Header offset={offset} personal={personal} />
 
-            <BannerAd
-              unitId={
-                Platform.OS === "ios"
-                  ? "ca-app-pub-4498280233730795/2148935080"
-                  : "ca-app-pub-4498280233730795/9069566658"
-              }
-              size={BannerAdSize.BANNER}
-              requestOptions={{
-                requestNonPersonalizedAdsOnly: true,
-                keywords: ["uwu", "owo", "uwuifier", "owoifier"],
-              }}
-            />
+              <BannerAd
+                size={BannerAdSize.BANNER}
+                unitId={
+                  Platform.OS === "ios"
+                    ? "ca-app-pub-4498280233730795/2148935080"
+                    : "ca-app-pub-4498280233730795/9069566658"
+                }
+                requestOptions={{
+                  requestNonPersonalizedAdsOnly: true,
+                  keywords: [
+                    "uwu",
+                    "owo",
+                    "cute",
+                    "anime",
+                    "kawaii",
+                    "uwuify",
+                    "owoify",
+                    "uwuifier",
+                    "owoifier",
+                    "emoticons",
+                  ],
+                }}
+              />
 
-            <Editor onUwuified={handleUwuified} />
+              <Editor onUwuified={handleUwuified} />
+            </View>
           </View>
-        </View>
-      </TouchableWithoutFeedback>
+        </TouchableWithoutFeedback>
+      </ScrollView>
     </RootSiblingParent>
   );
 }
 
 const styles = StyleSheet.create({
-  body: {
+  scroll: {
+    minHeight: "100%",
+    backgroundColor: "#303030",
+  },
+  scroll__body: {
     flex: 1,
     backgroundColor: "#303030",
   },
-  body__content: {
+  scroll__body__content: {
     gap: 16,
     flex: 1,
     paddingVertical: 16,
