@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffc83d",
   },
   output__scroll: {
-    minHeight: 125,
+    minHeight: 150,
     marginVertical: 16,
   },
   output__scroll__text: {
