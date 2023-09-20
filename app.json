@@ -3,7 +3,7 @@
     "icon": "./assets/icon.png",
     "name": "Uwuifier",
     "slug": "uwuifier",
-    "version": "2.0.2",
+    "version": "2.0.4",
     "orientation": "portrait",
     "backgroundColor": "#303030",
     "userInterfaceStyle": "light",
@@ -24,7 +24,7 @@
         "foregroundImage": "./assets/adaptive-icon.png"
       },
       "package": "com.sjorsvanholst.uwuifier",
-      "versionCode": 14,
+      "versionCode": 16,
       "permissions": ["INTERNET"]
     },
     "androidStatusBar": {
