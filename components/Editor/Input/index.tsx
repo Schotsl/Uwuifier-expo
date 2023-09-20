@@ -24,6 +24,7 @@ export default function EditorInput({
         value={value}
         multiline={true}
         onFocus={onFocus}
+        placeholder="Type something here..."
         onChangeText={onChange}
         textAlignVertical="top"
         placeholderTextColor="grey"

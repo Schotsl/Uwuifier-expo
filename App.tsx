@@ -21,8 +21,8 @@ Sentry.init({
 });
 
 export default function App() {
-  const [offset, setOffset] = useState(0);
   const [state, setState] = useState(AppState.currentState);
+  const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(true);
   const [personal, setPersonal] = useState(0);
 
