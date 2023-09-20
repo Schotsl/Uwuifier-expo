@@ -2,6 +2,7 @@ import React from "react";
 import Constants from "expo-constants";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+import { BannerAd, BannerAdSize } from "react-native-google-mobile-ads";
 import Header from "./components/Header";
 import Editor from "./components/Editor";
 import plausible from "./utils/plausible";
@@ -11,7 +12,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 import { RootSiblingParent } from "react-native-root-siblings";
 import { useState, useEffect } from "react";
-import { TouchableWithoutFeedback, Keyboard } from "react-native";
+import { TouchableWithoutFeedback, Keyboard, Platform } from "react-native";
 
 import * as StoreReview from "expo-store-review";
 import * as Sentry from "sentry-expo";
@@ -128,6 +129,19 @@ export default function App() {
         <View style={[styles.body, { paddingTop: Constants.statusBarHeight }]}>
           <View style={styles.body__content}>
             <Header offset={offset} personal={personal} />
+
+            <BannerAd
+              unitId={
+                Platform.OS === "ios"
+                  ? "ca-app-pub-4498280233730795/2148935080"
+                  : "ca-app-pub-4498280233730795/9069566658"
+              }
+              size={BannerAdSize.BANNER}
+              requestOptions={{
+                requestNonPersonalizedAdsOnly: true,
+                keywords: ["uwu", "owo", "uwuifier", "owoifier"],
+              }}
+            />
 
             <Editor onUwuified={handleUwuified} />
           </View>

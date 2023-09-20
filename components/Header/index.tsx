@@ -141,6 +141,7 @@ export default function Header({ offset, personal }: HeaderProps) {
 const styles = StyleSheet.create({
   header: {
     gap: 16,
+    marginBottom: 4,
   },
   header__emoji: {
     gap: 8,

@@ -41,5 +41,9 @@
       }
     },
     "plugins": ["sentry-expo"]
+  },
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-4498280233730795~5641368241",
+    "ios_app_id": "ca-app-pub-4498280233730795~3587966261"
   }
 }
