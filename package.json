@@ -5,7 +5,9 @@
   "scripts": {
     "start": "expo start",
     "simulator:ios": "eas build -p ios --profile preview",
-    "simulator:android": "eas build -p android --profile preview"
+    "simulator:android": "eas build -p android --profile preview",
+    "production:ios": "eas build --platform ios",
+    "production:android": "eas build --platform android"
   },
   "dependencies": {
     "expo": "~49.0.8",
