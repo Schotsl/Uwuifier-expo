@@ -65,7 +65,7 @@ export default function App() {
     const value = JSON.stringify(personal);
 
     try {
-      AsyncStorage.setItem("personal", value);
+      AsyncStorage.setItem("counter", value);
     } catch (error) {
       console.error("Error saving personal data:", error);
     }
@@ -73,7 +73,7 @@ export default function App() {
 
   async function loadPersonal() {
     try {
-      const personalRaw = await AsyncStorage.getItem("personal");
+      const personalRaw = await AsyncStorage.getItem("counter");
       const personalParsed = personalRaw ? JSON.parse(personalRaw) : 0;
 
       setPersonal(personalParsed);
