@@ -18,6 +18,7 @@
       "bundleIdentifier": "com.sjorsvanholst.uwuifier"
     },
     "android": {
+      "softwareKeyboardLayoutMode": "pan",
       "adaptiveIcon": {
         "backgroundColor": "#303030",
         "foregroundImage": "./assets/adaptive-icon.png"
