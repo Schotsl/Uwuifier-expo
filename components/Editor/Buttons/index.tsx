@@ -13,7 +13,7 @@ interface Props {
   onShare: () => void;
 }
 
-export default function OutputActions({ value, onCopy, onShare }: Props) {
+export default function EditorButtons({ value, onCopy, onShare }: Props) {
   async function copyText(message: string) {
     await Clipboard.setStringAsync(message);
 
@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
   buttons: {
     gap: 16,
     paddingBottom: 24,
+    paddingHorizontal: 20,
     flexDirection: "row",
   },
   buttons__button: {

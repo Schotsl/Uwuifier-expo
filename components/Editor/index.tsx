@@ -5,8 +5,8 @@ import plausible from "../../utils/plausible";
 
 import EditorInput from "./Input";
 import EditorOutput from "./Output";
+import EditorButtons from "./Buttons";
 
-import { Keyboard } from "react-native";
 import { View, StyleSheet } from "react-native";
 import { useState, useRef, useEffect, MutableRefObject } from "react";
 
@@ -70,7 +70,9 @@ export default function Editor({ onUwuified }: EditorProps) {
     <View style={styles.editor}>
       <EditorInput value={input} onFocus={handleFocus} onChange={handleInput} />
 
-      <EditorOutput
+      <EditorOutput value={uwuifier.uwuifySentence(input)} />
+
+      <EditorButtons
         value={uwuifier.uwuifySentence(input)}
         onCopy={() => plausible("Copied sentence")}
         onShare={() => plausible("Shared sentence")}

@@ -34,7 +34,7 @@ export default function EditorInput({
 
 const styles = StyleSheet.create({
   input: {
-    height: "50%",
+    flex: 1,
     backgroundColor: "#252525",
   },
   input__wrapper__element: {
