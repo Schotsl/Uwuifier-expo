@@ -40,8 +40,8 @@ export default function App() {
     const { width } = Dimensions.get("window");
 
     // Subtract 64 from width to account for the padding
-    const adWidth = width - 64;
-    const adHeight = adWidth / 6;
+    const adWidth = Math.floor(width - 64);
+    const adHeight = Math.floor(adWidth / 6);
     const adSize = `${adWidth}x${adHeight}`;
 
     setSize(adSize);
