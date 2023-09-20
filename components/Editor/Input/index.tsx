@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   input__wrapper__element: {
     flex: 1,
-    height: "100%",
+    minHeight: 125,
     color: "#ffffff",
     fontSize: 17,
     marginVertical: 16,

@@ -3,7 +3,7 @@
     "icon": "./assets/icon.png",
     "name": "Uwuifier",
     "slug": "uwuifier",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "orientation": "portrait",
     "backgroundColor": "#303030",
     "userInterfaceStyle": "light",
@@ -24,7 +24,7 @@
         "foregroundImage": "./assets/adaptive-icon.png"
       },
       "package": "com.sjorsvanholst.uwuifier",
-      "versionCode": 15,
+      "versionCode": 16,
       "permissions": ["INTERNET"]
     },
     "androidStatusBar": {
@@ -41,5 +41,9 @@
       }
     },
     "plugins": ["sentry-expo"]
+  },
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-4498280233730795~5641368241",
+    "ios_app_id": "ca-app-pub-4498280233730795~3587966261"
   }
 }

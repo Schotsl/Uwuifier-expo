@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     backgroundColor: "#ffc83d",
 
-    marginTop: 12,
+    marginTop: 8,
     marginHorizontal: -16,
     borderRadius: 32,
 
