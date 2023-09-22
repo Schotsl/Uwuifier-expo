@@ -95,11 +95,13 @@ export default function App() {
       return;
     }
 
-    // Prevent the popup from showing again
-    AsyncStorage.setItem("shown", JSON.stringify(true));
+    try {
+      AsyncStorage.setItem("shown", JSON.stringify(true));
+    } catch (error) {
+      console.error("Error saving shown data:", error);
+    }
 
     try {
-      console.log("Showing review");
       await StoreReview.requestReview();
     } catch (error) {
       console.error("Error showing review:", error);
