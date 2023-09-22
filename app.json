@@ -3,7 +3,7 @@
     "icon": "./assets/icon.png",
     "name": "Uwuifier",
     "slug": "uwuifier",
-    "version": "2.0.4",
+    "version": "2.0.5",
     "orientation": "portrait",
     "backgroundColor": "#303030",
     "userInterfaceStyle": "light",
@@ -14,7 +14,6 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "buildNumber": "2",
       "supportsTablet": true,
       "bundleIdentifier": "com.sjorsvanholst.uwuifier"
     },
