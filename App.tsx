@@ -30,7 +30,10 @@ Sentry.init({
 });
 
 export default function App() {
+  const date = Date.now();
+
   const [size, setSize] = useState("200x300");
+  const [last, setLast] = useState(date);
   const [state, setState] = useState(AppState.currentState);
   const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -117,8 +120,18 @@ export default function App() {
   }, [loading]);
 
   useEffect(() => {
-    if (state === "active") {
+    const current = Date.now();
+    const difference = current - last;
+
+    if (state === "background") {
+      setLast(current);
+    } else if (state === "active") {
       attemptReview();
+
+      // If the app was in the background for more than 30 minutes
+      if (difference > 1800000) {
+        plausible();
+      }
     }
   }, [state]);
 
