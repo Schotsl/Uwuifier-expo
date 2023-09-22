@@ -26,7 +26,7 @@ import * as StoreReview from "expo-store-review";
 import * as Sentry from "sentry-expo";
 
 Sentry.init({
-  dsn: "https://acadd9a0860971ccb67c8b0b06552cc6@o4505897577414656.ingest.sentry.io/4505897580888064",
+  dsn: "https://08376e96bda4c0bd109533f41aed58a2@o4505897577414656.ingest.sentry.io/4505897580888064",
 });
 
 export default function App() {
