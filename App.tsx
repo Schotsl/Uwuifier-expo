@@ -8,6 +8,8 @@ import plausible from "./utils/plausible";
 
 import { BannerAd } from "react-native-google-mobile-ads";
 import { StatusBar } from "expo-status-bar";
+import { AdsConsent } from "react-native-google-mobile-ads";
+
 import { RootSiblingParent } from "react-native-root-siblings";
 import { useState, useEffect } from "react";
 import {
@@ -87,6 +89,11 @@ export default function App() {
     }
   }
 
+  async function loadConsent() {
+    await AdsConsent.requestInfoUpdate();
+    await AdsConsent.loadAndShowConsentFormIfRequired();
+  }
+
   async function attemptReview() {
     const shownRaw = await AsyncStorage.getItem("shown");
     const shownParsed = shownRaw ? JSON.parse(shownRaw) : false;
@@ -109,6 +116,7 @@ export default function App() {
   }
 
   useEffect(() => {
+    loadConsent();
     loadPersonal();
 
     // Send a generic page view
@@ -180,7 +188,6 @@ export default function App() {
                         : "ca-app-pub-4498280233730795/9069566658"
                     }
                     requestOptions={{
-                      requestNonPersonalizedAdsOnly: true,
                       keywords: [
                         "uwu",
                         "owo",
