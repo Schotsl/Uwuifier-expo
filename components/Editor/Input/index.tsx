@@ -1,4 +1,5 @@
 import React from "react";
+import globals from "../../../variables";
 
 import EditorLabel from "../Label";
 
@@ -24,10 +25,12 @@ export default function EditorInput({
       return;
     }
 
+    const element = input.current as HTMLElement;
+
     if (focused) {
-      input.current.blur();
+      element.blur();
     } else {
-      input.current.focus();
+      element.focus();
     }
   };
 
@@ -43,7 +46,11 @@ export default function EditorInput({
 
   return (
     <View style={styles.input}>
-      <EditorLabel color="#fff" background="#252525" label="Input" />
+      <EditorLabel
+        color={globals.colors.white}
+        background={globals.colors.grey}
+        label="Input"
+      />
 
       <TouchableOpacity
         style={styles.input__wrapper}
@@ -70,16 +77,18 @@ export default function EditorInput({
 const styles = StyleSheet.create({
   input: {
     flex: 1,
-    backgroundColor: "#252525",
+
+    backgroundColor: globals.colors.grey,
   },
   input__wrapper: {
     flex: 1,
     height: 150,
-    marginVertical: 16,
-    paddingHorizontal: 20,
+
+    marginVertical: globals.spacing.default,
+    paddingHorizontal: globals.spacing.editor.horizontal,
   },
   input__wrapper__element: {
-    color: "#ffffff",
-    fontSize: 17,
+    color: globals.colors.white,
+    fontSize: globals.font.body,
   },
 });

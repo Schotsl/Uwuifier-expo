@@ -4,6 +4,8 @@ import Svg from "react-native-svg";
 import React from "react";
 import Toast from "react-native-root-toast";
 
+import globals from "../../../variables";
+
 import { Path } from "react-native-svg";
 import { Text, View, Share, Pressable, StyleSheet } from "react-native";
 
@@ -67,27 +69,30 @@ export default function EditorButtons({ value, onCopy, onShare }: Props) {
 
 const styles = StyleSheet.create({
   buttons: {
-    gap: 16,
-    paddingBottom: 24,
-    paddingHorizontal: 20,
     flexDirection: "row",
+
+    gap: globals.spacing.default,
+    paddingBottom: globals.spacing.editor.vertical,
+    paddingHorizontal: globals.spacing.editor.horizontal,
   },
   buttons__button: {
-    gap: 16,
     alignItems: "center",
     flexDirection: "row",
-    paddingVertical: 16,
-    paddingHorizontal: 24,
-    borderRadius: 32,
-    backgroundColor: "#252525",
-    borderColor: "#fff",
-    borderWidth: 2,
-    borderStyle: "solid",
+
+    gap: globals.spacing.default,
+    borderColor: globals.border.color,
+    borderWidth: globals.border.width,
+    borderStyle: globals.border.style,
+    borderRadius: globals.radius,
+    backgroundColor: globals.colors.grey,
+    paddingVertical: globals.spacing.default,
+    paddingHorizontal: globals.spacing.editor.vertical,
   },
   buttons__button__text: {
-    color: "#ffffff",
-    fontSize: 17,
     fontWeight: "700",
     marginBottom: 1,
+
+    color: globals.colors.white,
+    fontSize: globals.font.body,
   },
 });

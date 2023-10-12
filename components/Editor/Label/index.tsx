@@ -1,5 +1,5 @@
 import React from "react";
-
+import globals from "../../../variables";
 import { StyleSheet, Text, View } from "react-native";
 
 interface EditorLabelProps {
@@ -37,9 +37,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   content: {
-    fontSize: 17,
-    fontWeight: "bold",
     textAlign: "center",
+    fontWeight: "bold",
+
+    fontSize: globals.font.body,
   },
   upperline: {
     height: 3,

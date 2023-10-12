@@ -2,6 +2,8 @@ import React from "react";
 import supabase from "../../utils/supabase";
 import Uwuifier from "../../utils/uwuifier";
 
+import globals from "../../variables";
+
 import { Image } from "react-native";
 import { useState } from "react";
 import { formatNumber } from "../../helper";
@@ -119,7 +121,7 @@ export default function Header({ offset, personal }: HeaderProps) {
         over {/* If loading is true show indicator, otherwise show text */}
         {loading ? (
           <View style={styles.header__title__bold__loader}>
-            <ActivityIndicator size="small" color="#fff" />
+            <ActivityIndicator size="small" color={globals.colors.white} />
           </View>
         ) : (
           <Text>{formatNumber(count + offset)}</Text>
@@ -140,29 +142,33 @@ export default function Header({ offset, personal }: HeaderProps) {
 
 const styles = StyleSheet.create({
   header: {
-    gap: 16,
     marginBottom: 4,
+
+    gap: globals.spacing.default,
   },
   header__emoji: {
-    gap: 8,
     flexDirection: "row",
+
+    gap: globals.spacing.default / 2,
   },
   header__title: {
-    color: "#ffffff",
-    fontSize: 28,
     fontWeight: "400",
+
+    color: globals.colors.white,
+    fontSize: globals.font.title,
   },
   header__title__bold: {
     fontWeight: "700",
   },
   header__title__bold__loader: {
-    paddingHorizontal: 16,
+    paddingHorizontal: globals.spacing.default,
   },
   header__subtitle: {
-    color: "#ffffff",
     opacity: 0.5,
-    fontSize: 22,
     fontWeight: "700",
+
+    color: globals.colors.white,
+    fontSize: globals.font.subtitle,
   },
   header__subtitle__bold: {
     fontWeight: "900",

@@ -1,6 +1,8 @@
 import React from "react";
 import Uwuifier from "../../../utils/uwuifier";
 
+import globals from "../../../variables";
+
 import EditorLabel from "../Label";
 
 import { ScrollView, StyleSheet, View, Text } from "react-native";
@@ -14,7 +16,11 @@ export default function EditorOutput({ value }: EditorOutputProps) {
 
   return (
     <View style={styles.output}>
-      <EditorLabel color="#252525" background="#ffc83d" label="Output" />
+      <EditorLabel
+        color={globals.colors.grey}
+        background={globals.colors.yellow}
+        label="Output"
+      />
 
       <ScrollView style={styles.output__scroll}>
         {value === "" ? (
@@ -32,20 +38,23 @@ export default function EditorOutput({ value }: EditorOutputProps) {
 const styles = StyleSheet.create({
   output: {
     flex: 1,
-    paddingHorizontal: 24,
-    backgroundColor: "#ffc83d",
+
+    backgroundColor: globals.colors.yellow,
+    paddingHorizontal: globals.spacing.editor.vertical,
   },
   output__scroll: {
     minHeight: 150,
-    marginVertical: 16,
+
+    marginVertical: globals.spacing.default,
   },
   output__scroll__text: {
-    color: "#252525",
-    fontSize: 17,
+    color: globals.colors.grey,
+    fontSize: globals.font.body,
   },
   output_scroll__placeholder: {
-    color: "#252525",
     opacity: 0.75,
-    fontSize: 17,
+    
+    color: globals.colors.grey,
+    fontSize: globals.font.body,
   },
 });

@@ -1,5 +1,7 @@
 import React from "react";
 
+import globals from "../../variables";
+
 import Uwuifier from "../../utils/uwuifier";
 import plausible from "../../utils/plausible";
 
@@ -92,15 +94,15 @@ const styles = StyleSheet.create({
   editor: {
     flex: 1,
     overflow: "hidden",
-    backgroundColor: "#ffc83d",
-
-    marginTop: 8,
-    marginHorizontal: -16,
-    borderRadius: 32,
 
     shadowColor: "black",
     shadowOffset: { width: 4, height: 4 },
     shadowRadius: 4,
     shadowOpacity: 0.25,
+
+    marginTop: globals.spacing.default / 2,
+    borderRadius: globals.radius,
+    backgroundColor: globals.colors.yellow,
+    marginHorizontal: -globals.spacing.default,
   },
 });

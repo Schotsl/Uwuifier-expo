@@ -2,6 +2,8 @@ import React from "react";
 import Constants from "expo-constants";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+import globals from "./variables";
+
 import Header from "./components/Header";
 import Editor from "./components/Editor";
 import plausible from "./utils/plausible";
@@ -204,7 +206,10 @@ export default function App() {
                   />
                 </View>
                 <View style={styles.scroll__body__content__ad__cover}>
-                  <ActivityIndicator size={"small"} color="#fff" />
+                  <ActivityIndicator
+                    size={"small"}
+                    color={globals.colors.white}
+                  />
                 </View>
               </View>
 
@@ -220,22 +225,26 @@ export default function App() {
 const styles = StyleSheet.create({
   scroll: {
     minHeight: "100%",
-    backgroundColor: "#303030",
+
+    backgroundColor: globals.colors.background,
   },
   scroll__body: {
     flex: 1,
-    backgroundColor: "#303030",
+
+    backgroundColor: globals.colors.background,
   },
   scroll__body__content: {
-    gap: 16,
     flex: 1,
-    paddingVertical: 16,
-    paddingHorizontal: 32,
+
+    gap: globals.spacing.default,
+    paddingVertical: globals.spacing.default,
+    paddingHorizontal: globals.spacing.default * 2,
   },
   scroll__body__content__ad: {
     overflow: "hidden",
     position: "relative",
-    borderRadius: 8,
+
+    borderRadius: globals.spacing.default / 2,
   },
   scroll__body__content__ad__wrapper: {
     zIndex: 1,
@@ -246,6 +255,7 @@ const styles = StyleSheet.create({
     opacity: 0.75,
     position: "absolute",
     justifyContent: "center",
-    backgroundColor: "#252525",
+
+    backgroundColor: globals.colors.grey,
   },
 });
