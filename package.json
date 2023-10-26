@@ -1,7 +1,6 @@
 {
   "name": "uwuifier",
   "version": "2.0.4",
-  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start --dev-client",
     "build:ios": "eas build -p ios --profile development --local",
