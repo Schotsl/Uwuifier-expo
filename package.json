@@ -1,4 +1,5 @@
 {
+  "main": "node_modules/expo/AppEntry.js",
   "name": "uwuifier",
   "version": "2.0.4",
   "scripts": {
