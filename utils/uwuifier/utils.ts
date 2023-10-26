@@ -58,16 +58,12 @@ export function isUri(value: string): boolean {
   if (!value) return false;
 
   // Check for illegal characters
-  if (
-    /[^a-z0-9\:\/\?\#\[\]\@\!\$\&\'\(\)\*\+\,\;\=\.\-\_\~\%]/i.test(value)
-  ) {
+  if (/[^a-z0-9\:\/\?\#\[\]\@\!\$\&\'\(\)\*\+\,\;\=\.\-\_\~\%]/i.test(value)) {
     return false;
   }
 
   // Check for hex escapes that aren't complete
-  if (
-    /%[^0-9a-f]/i.test(value) || /%[0-9a-f](:?[^0-9a-f]|$)/i.test(value)
-  ) {
+  if (/%[^0-9a-f]/i.test(value) || /%[0-9a-f](:?[^0-9a-f]|$)/i.test(value)) {
     return false;
   }
 

@@ -1,13 +1,10 @@
 import * as Clipboard from "expo-clipboard";
-
-import Svg from "react-native-svg";
 import React from "react";
+import { Text, View, Share, Pressable, StyleSheet } from "react-native";
 import Toast from "react-native-root-toast";
+import Svg, { Path } from "react-native-svg";
 
 import globals from "../../../variables";
-
-import { Path } from "react-native-svg";
-import { Text, View, Share, Pressable, StyleSheet } from "react-native";
 
 interface Props {
   value: string;

@@ -1,19 +1,8 @@
-import React from "react";
-import Constants from "expo-constants";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
-import globals from "./variables";
-
-import Header from "./components/Header";
-import Editor from "./components/Editor";
-import plausible from "./utils/plausible";
-
-import { BannerAd } from "react-native-google-mobile-ads";
+import Constants from "expo-constants";
 import { StatusBar } from "expo-status-bar";
-import { AdsConsent } from "react-native-google-mobile-ads";
-
-import { RootSiblingParent } from "react-native-root-siblings";
-import { useState, useEffect } from "react";
+import * as StoreReview from "expo-store-review";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Keyboard,
@@ -25,9 +14,14 @@ import {
   ActivityIndicator,
   TouchableWithoutFeedback,
 } from "react-native";
-
-import * as StoreReview from "expo-store-review";
+import { BannerAd, AdsConsent } from "react-native-google-mobile-ads";
+import { RootSiblingParent } from "react-native-root-siblings";
 import * as Sentry from "sentry-expo";
+
+import Editor from "./components/Editor";
+import Header from "./components/Header";
+import plausible from "./utils/plausible";
+import globals from "./variables";
 
 Sentry.init({
   dsn: "https://08376e96bda4c0bd109533f41aed58a2@o4505897577414656.ingest.sentry.io/4505897580888064",
@@ -60,11 +54,11 @@ export default function App() {
 
     const personalIncreased = personal + 1;
 
-    if (personalIncreased == 25) plausible("Uwuified 25 sentences");
-    if (personalIncreased == 50) plausible("Uwuified 50 sentences");
-    if (personalIncreased == 100) plausible("Uwuified 100 sentences");
-    if (personalIncreased == 250) plausible("Uwuified 250 sentences");
-    if (personalIncreased == 500) plausible("Uwuified 500 sentences");
+    if (personalIncreased === 25) plausible("Uwuified 25 sentences");
+    if (personalIncreased === 50) plausible("Uwuified 50 sentences");
+    if (personalIncreased === 100) plausible("Uwuified 100 sentences");
+    if (personalIncreased === 250) plausible("Uwuified 250 sentences");
+    if (personalIncreased === 500) plausible("Uwuified 500 sentences");
   }, [offset]);
 
   useEffect(() => {
@@ -151,7 +145,7 @@ export default function App() {
 
   useEffect(() => {
     const listener = AppState.addEventListener("change", (state) =>
-      setState(state)
+      setState(state),
     );
 
     return () => {
@@ -209,7 +203,7 @@ export default function App() {
                 </View>
                 <View style={styles.scroll__body__content__ad__cover}>
                   <ActivityIndicator
-                    size={"small"}
+                    size="small"
                     color={globals.colors.white}
                   />
                 </View>

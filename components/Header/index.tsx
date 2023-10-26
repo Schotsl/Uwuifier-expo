@@ -1,20 +1,17 @@
-import React from "react";
-import supabase from "../../utils/supabase";
-import Uwuifier from "../../utils/uwuifier";
-
-import globals from "../../variables";
-
-import { Image } from "react-native";
-import { useState } from "react";
-import { formatNumber } from "../../helper";
-import { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
+  Image,
   Text,
   View,
   StyleSheet,
   AppState,
   ActivityIndicator,
 } from "react-native";
+
+import { formatNumber } from "../../helper";
+import supabase from "../../utils/supabase";
+import Uwuifier from "../../utils/uwuifier";
+import globals from "../../variables";
 
 type HeaderProps = {
   offset: number;
@@ -50,7 +47,7 @@ export default function Header({ offset, personal }: HeaderProps) {
         },
         (payload) => {
           setCount(payload.new.uwuified_sentence - reference.current);
-        }
+        },
       )
       .subscribe();
 
@@ -90,7 +87,7 @@ export default function Header({ offset, personal }: HeaderProps) {
 
   useEffect(() => {
     const listener = AppState.addEventListener("change", (state) =>
-      setState(state)
+      setState(state),
     );
 
     return () => {
@@ -104,15 +101,15 @@ export default function Header({ offset, personal }: HeaderProps) {
         <Image
           source={require("../../assets/emojis/pleading-face.png")}
           style={{ width: 42, height: 42 }}
-        ></Image>
+        />
         <Image
           source={require("../../assets/emojis/backhand-index-pointing-right.png")}
           style={{ width: 42, height: 42 }}
-        ></Image>
+        />
         <Image
           source={require("../../assets/emojis/backhand-index-pointing-left.png")}
           style={{ width: 42, height: 42 }}
-        ></Image>
+        />
       </View>
 
       <Text style={styles.header__title}>

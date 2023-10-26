@@ -1,10 +1,8 @@
-import React from "react";
-import globals from "../../../variables";
-
-import EditorLabel from "../Label";
-
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { View, TextInput, StyleSheet, TouchableOpacity } from "react-native";
+
+import globals from "../../../variables";
+import EditorLabel from "../Label";
 
 type EditorInputProps = {
   value: string;
@@ -61,7 +59,7 @@ export default function EditorInput({
           ref={input}
           style={styles.input__wrapper__element}
           value={value}
-          multiline={true}
+          multiline
           onBlur={handleInputBlur}
           onFocus={handleInputFocus}
           onChangeText={onChange}

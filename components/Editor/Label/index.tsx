@@ -1,6 +1,7 @@
 import React from "react";
-import globals from "../../../variables";
 import { StyleSheet, Text, View } from "react-native";
+
+import globals from "../../../variables";
 
 interface EditorLabelProps {
   color: string;
@@ -16,11 +17,11 @@ export default function EditorLabel({
   return (
     <View style={[styles.header, { backgroundColor: background }]}>
       <View style={styles.wrapper}>
-        <View style={styles.upperline}></View>
+        <View style={styles.upperline} />
 
         <Text style={[styles.content, { color }]}>{label}</Text>
 
-        <View style={[styles.underline, { backgroundColor: color }]}></View>
+        <View style={[styles.underline, { backgroundColor: color }]} />
       </View>
     </View>
   );

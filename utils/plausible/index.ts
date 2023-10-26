@@ -1,6 +1,5 @@
-import { Dimensions } from "react-native";
-
 import Constants from "expo-constants";
+import { Dimensions } from "react-native";
 
 const TARGET_URL = "https://uwuifier.com";
 const TARGET_DOMAIN = "uwuifier.com";
@@ -17,24 +16,21 @@ export default async (event: string = "pageview") => {
   }
 
   try {
-    await fetch(
-      "https://plausible.hedium.nl/api/event",
-      {
-        method: "POST",
-        headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-          "User-Agent": agent,
-        },
-        body: JSON.stringify({
-          n: event,
-          d: TARGET_DOMAIN,
-          w: width,
-          u: TARGET_URL,
-        }),
+    await fetch("https://plausible.hedium.nl/api/event", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "User-Agent": agent,
       },
-    );
-  } catch (e) {
+      body: JSON.stringify({
+        n: event,
+        d: TARGET_DOMAIN,
+        w: width,
+        u: TARGET_URL,
+      }),
+    });
+  } catch {
     console.log("Couldn't send event to Plausible.");
   }
 };

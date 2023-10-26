@@ -1,11 +1,9 @@
 import React from "react";
-import Uwuifier from "../../../utils/uwuifier";
-
-import globals from "../../../variables";
-
-import EditorLabel from "../Label";
-
 import { ScrollView, StyleSheet, View, Text } from "react-native";
+
+import Uwuifier from "../../../utils/uwuifier";
+import globals from "../../../variables";
+import EditorLabel from "../Label";
 
 type EditorOutputProps = {
   value: string;
@@ -53,7 +51,7 @@ const styles = StyleSheet.create({
   },
   output_scroll__placeholder: {
     opacity: 0.75,
-    
+
     color: globals.colors.grey,
     fontSize: globals.font.body,
   },
