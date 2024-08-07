@@ -1,5 +1,4 @@
 import Seed from "./seed";
-
 import { getCapitalPercentage, isAt, isUri } from "./utils";
 
 interface SpacesModifier {
@@ -118,8 +117,8 @@ export default class Uwuifier {
           checkCapital();
         } else if (random <= actionThreshold && this.actions) {
           // Add random action before the word
-          word += " " +
-            this.actions[seed.randomInt(0, this.actions.length - 1)];
+          word +=
+            " " + this.actions[seed.randomInt(0, this.actions.length - 1)];
           checkCapital();
         } else if (random <= stutterThreshold && !isUri(word)) {
           // Add stutter with a length between 0 and 2
