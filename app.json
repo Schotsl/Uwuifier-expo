@@ -101,12 +101,15 @@
           "extraProguardRules": "-keep class com.google.android.gms.internal.consent_sdk.** { *; }"
         }
       }
+    ],
+    [
+      "react-native-google-mobile-ads",
+      {
+        "iosAppId": "ca-app-pub-4498280233730795~3587966261",
+        "androidAppId": "ca-app-pub-4498280233730795~5641368241",
+        "delayAppMeasurementInit": true,
+        "userTrackingUsageDescription": "This identifier will be used to deliver personalized ads to you."
+      }
     ]
-  ],
-  "react-native-google-mobile-ads": {
-    "ios_app_id": "ca-app-pub-4498280233730795~3587966261",
-    "android_app_id": "ca-app-pub-4498280233730795~5641368241",
-    "delay_app_measurement_init": true,
-    "user_tracking_usage_description": "This identifier will be used to deliver personalized ads to you."
-  }
+  ]
 }
