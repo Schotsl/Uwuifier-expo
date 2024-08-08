@@ -93,7 +93,7 @@
     }
   },
   "plugins": [
-    "sentry-expo",
+    "@sentry/react-native/expo",
     [
       "expo-build-properties",
       {

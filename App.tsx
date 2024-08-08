@@ -1,4 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as Sentry from "@sentry/react-native";
 import Constants from "expo-constants";
 import { StatusBar } from "expo-status-bar";
 import * as StoreReview from "expo-store-review";
@@ -16,7 +17,6 @@ import {
 } from "react-native";
 import { BannerAd, AdsConsent } from "react-native-google-mobile-ads";
 import { RootSiblingParent } from "react-native-root-siblings";
-import * as Sentry from "sentry-expo";
 
 import Editor from "./components/Editor";
 import Header from "./components/Header";
@@ -24,7 +24,8 @@ import plausible from "./utils/plausible";
 import globals from "./variables";
 
 Sentry.init({
-  dsn: "https://08376e96bda4c0bd109533f41aed58a2@o4505897577414656.ingest.sentry.io/4505897580888064",
+  dsn: process.env.SENTRY_DSN,
+  enabled: !__DEV__,
 });
 
 export default function App() {
@@ -145,7 +146,7 @@ export default function App() {
 
   useEffect(() => {
     const listener = AppState.addEventListener("change", (state) =>
-      setState(state),
+      setState(state)
     );
 
     return () => {
