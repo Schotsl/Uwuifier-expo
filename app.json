@@ -94,7 +94,13 @@
     }
   },
   "plugins": [
-    "@sentry/react-native/expo",
+    [
+      "@sentry/react-native/expo",
+      {
+        "project": "uwuifier",
+        "organization": "sjors-van-holst-0c97a3b77"
+      }
+    ],
     [
       "expo-build-properties",
       {
