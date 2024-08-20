@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect, MutableRefObject } from "react";
 import { View, StyleSheet } from "react-native";
+import Uwuifier from "uwuifier";
 
 import EditorButtons from "./Buttons";
 import EditorInput from "./Input";
 import EditorOutput from "./Output";
 import plausible from "../../utils/plausible";
-import Uwuifier from "../../utils/uwuifier";
 import globals from "../../variables";
 
 type EditorProps = {
@@ -16,7 +16,7 @@ export default function Editor({ onUwuified }: EditorProps) {
   const [output, setOutput] = useState("");
   const [typed, setTyped] = useState(false);
   const [input, setText] = useState(
-    "According to all known laws of aviation, there is no way that a bee should be able to fly. Its wings are too small to get its fat little body off the ground.",
+    "According to all known laws of aviation, there is no way that a bee should be able to fly. Its wings are too small to get its fat little body off the ground."
   );
 
   const uwuifier = new Uwuifier();

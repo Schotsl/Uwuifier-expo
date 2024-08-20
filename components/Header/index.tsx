@@ -7,10 +7,10 @@ import {
   AppState,
   ActivityIndicator,
 } from "react-native";
+import Uwuifier from "uwuifier";
 
 import { formatNumber } from "../../helper";
 import supabase from "../../utils/supabase";
-import Uwuifier from "../../utils/uwuifier";
 import globals from "../../variables";
 
 type HeaderProps = {
@@ -47,7 +47,7 @@ export default function Header({ offset, personal }: HeaderProps) {
         },
         (payload) => {
           setCount(payload.new.uwuified_sentence - reference.current);
-        },
+        }
       )
       .subscribe();
 
@@ -87,7 +87,7 @@ export default function Header({ offset, personal }: HeaderProps) {
 
   useEffect(() => {
     const listener = AppState.addEventListener("change", (state) =>
-      setState(state),
+      setState(state)
     );
 
     return () => {

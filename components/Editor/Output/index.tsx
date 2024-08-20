@@ -1,7 +1,7 @@
 import React from "react";
 import { ScrollView, StyleSheet, View, Text } from "react-native";
+import Uwuifier from "uwuifier";
 
-import Uwuifier from "../../../utils/uwuifier";
 import globals from "../../../variables";
 import EditorLabel from "../Label";
 
