@@ -13,7 +13,6 @@
   },
   "assetBundlePatterns": ["**/*"],
   "ios": {
-    "buildNumber": "2",
     "supportsTablet": true,
     "bundleIdentifier": "com.sjorsvanholst.uwuifier",
     "infoPlist": {
@@ -77,7 +76,7 @@
       "foregroundImage": "./assets/adaptive-icon.png"
     },
     "package": "com.sjorsvanholst.uwuifier",
-    "versionCode": 24,
+    "versionCode": 25,
     "permissions": ["INTERNET"]
   },
   "androidStatusBar": {
